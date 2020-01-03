@@ -1,4 +1,0 @@
-com\db\DBApplication.class
-com\db\entity\User.class
-com\db\dao\UserDao.class
-com\db\entity\Role.class
