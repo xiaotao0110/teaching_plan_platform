@@ -7,12 +7,16 @@
     <groupId>com.springcloud</groupId>
     <artifactId>business-center</artifactId>
     <version>1.0-SNAPSHOT</version>
-
+    <packaging>pom</packaging>
     <parent>
         <groupId>com.springcloud</groupId>
         <artifactId>teaching_plan_platform</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
     <modules>
         <!--教室-->

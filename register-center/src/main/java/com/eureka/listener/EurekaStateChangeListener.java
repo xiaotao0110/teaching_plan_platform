@@ -1,6 +1,5 @@
 package com.eureka.listener;
 
-import com.netflix.appinfo.InstanceInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.netflix.eureka.server.event.*;
 import org.springframework.context.event.EventListener;

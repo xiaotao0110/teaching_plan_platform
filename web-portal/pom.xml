@@ -8,6 +8,10 @@
     <artifactId>web-portal</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
     <parent>
         <groupId>com.springcloud</groupId>
         <artifactId>teaching_plan_platform</artifactId>
