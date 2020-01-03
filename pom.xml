@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>war</packaging>
+
+    <name>teaching_plan_platform</name>
+    <groupId>com.springcloud</groupId>
+    <artifactId>teaching_plan_platform</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <modules>
+        <!-- 服务注册 -->
+        <module>register-center</module>
+        <!-- 认证中心 -->
+        <module>oauth-center</module>
+        <!-- 业务网关 -->
+        <module>api-gateway</module>
+        <!-- 基础业务中心 -->
+        <module>business-center</module>
+        <!-- DAO中心 -->
+        <module>db-center</module>
+        <!-- web页面门户 -->
+        <module>web-portal</module>
+
+        <!--考试中心-->
+        <module>crtvn-center</module>
+    </modules>
+
+</project>

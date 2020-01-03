@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.springcloud</groupId>
+    <artifactId>business-center</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <modules>
+        <!--教室-->
+        <module>classroom-center</module>
+        <!--班级-->
+        <module>classs-center</module>
+        <!--学院-->
+        <module>college-center</module>
+        <!--课程-->
+        <module>course-center</module>
+        <!--专业-->
+        <module>profession-center</module>
+        <!--学生-->
+        <module>student-center</module>
+        <!--教师-->
+        <module>teacher-center</module>
+    </modules>
+    
+</project>

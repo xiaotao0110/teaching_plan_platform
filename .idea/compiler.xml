@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="oauth-center" />
+        <module name="profession-center" />
+        <module name="web-portal" />
+        <module name="db-center" />
+        <module name="student-center" />
+        <module name="teaching_plan_platform" />
+        <module name="register-center" />
+        <module name="classs-center" />
+        <module name="classroom-center" />
+        <module name="teacher-center" />
+        <module name="business-center" />
+        <module name="api-gateway" />
+        <module name="college-center" />
+        <module name="crtvn-center" />
+        <module name="course-center" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>
