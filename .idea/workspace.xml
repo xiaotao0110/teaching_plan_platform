@@ -1,33 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="be657ed6-7416-4a85-9851-206013e76c33" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/business-center/classroom-center/src/main/resources/generatorConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/register-center/src/main/java/com.eureka.listener/EurekaInstanceCanceledListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/register-center/src/main/java/com/eureka/EurekaServerApp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/register-center/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/business-center/classroom-center/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/business-center/classroom-center/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/business-center/classs-center/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/business-center/classs-center/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/business-center/college-center/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/business-center/college-center/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/business-center/course-center/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/business-center/course-center/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/business-center/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/business-center/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/business-center/profession-center/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/business-center/profession-center/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/business-center/student-center/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/business-center/student-center/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/business-center/teacher-center/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/business-center/teacher-center/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crtvn-center/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/crtvn-center/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db-center/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/db-center/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth-center/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/oauth-center/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/register-center/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/register-center/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/register-center/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/register-center/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-portal/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web-portal/pom.xml" afterDir="false" />
-    </list>
+    <list default="true" id="be657ed6-7416-4a85-9851-206013e76c33" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -109,7 +83,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1578018642744</updated>
-      <workItem from="1578018645895" duration="2990000" />
+      <workItem from="1578018645895" duration="3290000" />
     </task>
     <servers />
   </component>
