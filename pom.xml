@@ -104,19 +104,31 @@
                 <version>${security-oauth2.version}</version>
             </dependency>
 
-            <!--db-center-->
+            <!-- 公共实体类模块 -->
             <dependency>
-                <groupId>com.springcloud</groupId>
-                <artifactId>db-center</artifactId>
-                <version>1.0-SNAPSHOT</version>
+                <groupId>com.open.capacity</groupId>
+                <artifactId>common-spring-boot-starter</artifactId>
+                <version>${core.version}</version>
+            </dependency>
+            <!-- 关系型和非关系型数据库配置 -->
+            <dependency>
+                <groupId>com.open.capacity</groupId>
+                <artifactId>db-spring-boot-starter</artifactId>
+                <version>${core.version}</version>
+            </dependency>
+            <!-- 非关系型数据库配置 -->
+            <dependency>
+                <groupId>com.open.capacity</groupId>
+                <artifactId>redis-spring-boot-starter</artifactId>
+                <version>${core.version}</version>
+            </dependency>
+            <!-- 日志配置 -->
+            <dependency>
+                <groupId>com.open.capacity</groupId>
+                <artifactId>log-spring-boot-starter</artifactId>
+                <version>${core.version}</version>
             </dependency>
 
-            <!--注册中心-->
-            <dependency>
-                <groupId>com.springcloud</groupId>
-                <artifactId>register-center</artifactId>
-                <version>1.0-SNAPSHOT</version>
-            </dependency>
         </dependencies>
     </dependencyManagement>
 

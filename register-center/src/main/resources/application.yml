@@ -1,3 +1,6 @@
+server:
+  port: 1000
+
 eureka:
   server:
     wait-time-in-ms-when-sync-empty: 0   #在eureka服务器获取不到集群里对等服务器上的实例时，需要等待的时间，单机默认0

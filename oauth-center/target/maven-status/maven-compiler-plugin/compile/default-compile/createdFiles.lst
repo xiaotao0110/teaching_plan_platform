@@ -1,4 +1,1 @@
-com\oauth\config\WebSecurityConfig.class
-com\oauth\service\UserServiceDetail.class
-com\oauth\config\OAuth2Config.class
 com\oauth\OauthApplication.class
