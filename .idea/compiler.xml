@@ -11,6 +11,7 @@
         <module name="web-portal" />
         <module name="db-center" />
         <module name="student-center" />
+        <module name="teaching_plan_platform" />
         <module name="register-center" />
         <module name="classs-center" />
         <module name="classroom-center" />

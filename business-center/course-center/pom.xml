@@ -8,9 +8,5 @@
     <artifactId>course-center</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <parent>
-        <groupId>com.springcloud</groupId>
-        <artifactId>business-center</artifactId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>
+    
 </project>

@@ -8,12 +8,6 @@
     <artifactId>business-center</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <parent>
-        <groupId>com.springcloud</groupId>
-        <artifactId>teaching_plan_platform</artifactId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>
-
     <modules>
         <!--教室-->
         <module>classroom-center</module>
