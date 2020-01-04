@@ -17,3 +17,5 @@ spring:
       min-evictable-idle-time-millis: 300000
   main:
     allow-bean-definition-overriding: true
+
+

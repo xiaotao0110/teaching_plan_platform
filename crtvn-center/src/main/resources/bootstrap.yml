@@ -1,8 +1,8 @@
 spring:
   application:
-    name: oauth-center
+    name: crtvn-center
 server:
-  port: 1001
+  port: 1003
 
 #eureka client配置
 eureka:

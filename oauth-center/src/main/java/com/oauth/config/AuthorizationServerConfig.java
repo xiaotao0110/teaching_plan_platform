@@ -1,0 +1,114 @@
+package com.oauth.config;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.oauth2.common.exceptions.OAuth2Exception;
+import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
+import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
+import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
+import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
+import org.springframework.security.oauth2.provider.error.DefaultWebResponseExceptionTranslator;
+import org.springframework.security.oauth2.provider.error.WebResponseExceptionTranslator;
+import org.springframework.security.oauth2.provider.token.TokenEnhancer;
+import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
+import org.springframework.security.oauth2.provider.token.TokenStore;
+import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * 配置授权服务器
+ */
+@Configuration
+@EnableAuthorizationServer
+public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
+
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
+    @Autowired
+    public UserDetailsService userDetailsService;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private TokenStore jwtTokenStore;
+
+    @Autowired
+    private JwtAccessTokenConverter jwtAccessTokenConverter;
+
+    @Autowired
+    @Qualifier("jwtTokenEnhancer")
+    private TokenEnhancer jwtTokenEnhancer;
+
+
+    @Override
+    public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
+        //允许表单提交
+        security.allowFormAuthenticationForClients()
+                .checkTokenAccess("permitAll()")
+                .tokenKeyAccess("permitAll()");
+    }
+
+    @Override
+    public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
+        clients.inMemory()
+                .withClient("client_admin")
+                .secret(passwordEncoder.encode("client_admin"))
+                .authorizedGrantTypes("password", "client_credentials", "refresh_token")
+                .scopes("read")
+                .resourceIds("resource")
+                .authorities("admin")
+                .accessTokenValiditySeconds(3 * 60 * 60)
+                .refreshTokenValiditySeconds(6 * 60 * 60);
+    }
+
+    @Override
+    public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+
+
+        TokenEnhancerChain enhancerChain = new TokenEnhancerChain();
+        List<TokenEnhancer> enhancerList = new ArrayList<>();
+        enhancerList.add(jwtTokenEnhancer);
+        enhancerList.add(jwtAccessTokenConverter);
+        enhancerChain.setTokenEnhancers(enhancerList);
+
+        endpoints.authenticationManager(authenticationManager)
+                .tokenStore(jwtTokenStore)
+                .accessTokenConverter(jwtAccessTokenConverter)
+                .tokenEnhancer(enhancerChain)
+                .exceptionTranslator(loggingExceptionTranslator());
+
+
+//        endpoints.authenticationManager(authenticationManager)
+//                .userDetailsService(userDetailsService)
+//                .tokenStore(jwtTokenStore) //设置jwtToken为tokenStore
+//                .accessTokenConverter(jwtAccessTokenConverter);//设置access_token转换器
+
+    }
+
+    @Bean
+    public WebResponseExceptionTranslator loggingExceptionTranslator() {
+        return new DefaultWebResponseExceptionTranslator() {
+            private Log log = LogFactory.getLog(getClass());
+
+            @Override
+            public ResponseEntity<OAuth2Exception> translate(Exception e) throws Exception {
+                //异常堆栈信息输出
+                log.error("异常堆栈信息", e);
+                return super.translate(e);
+            }
+        };
+    }
+}
