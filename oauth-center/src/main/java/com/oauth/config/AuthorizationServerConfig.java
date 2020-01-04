@@ -90,12 +90,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .tokenEnhancer(enhancerChain)
                 .exceptionTranslator(loggingExceptionTranslator());
 
-
-//        endpoints.authenticationManager(authenticationManager)
-//                .userDetailsService(userDetailsService)
-//                .tokenStore(jwtTokenStore) //设置jwtToken为tokenStore
-//                .accessTokenConverter(jwtAccessTokenConverter);//设置access_token转换器
-
     }
 
     @Bean

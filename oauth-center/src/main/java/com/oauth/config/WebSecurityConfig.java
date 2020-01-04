@@ -12,8 +12,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import java.util.Collections;
-
 
 /**
  * 配置spring security
@@ -43,18 +41,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(authUserDetailsService).passwordEncoder(passwordEncoder());
-
-//        auth.inMemoryAuthentication()
-//                .withUser("admin")
-//                .password(passwordEncoder().encode("admin"))
-//                .authorities(Collections.emptyList());
-
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-       // http.csrf().disable().authorizeRequests().antMatchers("/oauth/**").permitAll();
-
         http.authorizeRequests()
                 .anyRequest().authenticated() //所有请求都需要通过认证
                 .and()
