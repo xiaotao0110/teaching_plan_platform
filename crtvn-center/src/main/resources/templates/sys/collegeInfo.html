@@ -30,28 +30,28 @@
 <script type="text/javascript"
 	src="/js/jquery-easyui-1.2.6/locale/easyui-lang-zh_CN.js"></script>
 
-<script type="text/javascript">
+<script type="text/javascript" th:inline="none">
 	$(function(){
-		
+
 		var bodyHeight = $(window).height();
 		var bodyWidth = $(window).width();
 		$("#professionDataGrid").datagrid({
 			url:"profession/professionDataGrid",
 	        title: "专业信息列表",
-	        width: bodyWidth - 30,  
-	        height: bodyHeight-190,       
+	        width: bodyWidth - 30,
+	        height: bodyHeight-190,
 	        rownumbers: true,
 	        pagination: true,
-	        columns:[[    
+	        columns:[[
 	           {field:"collegeName",title:"所属学院",width:bodyWidth * 0.1},
-	           {field:"professionCode",title:"专业代号",width:bodyWidth * 0.1},    
-	           {field:"professionName",title:"专业名称",width:bodyWidth * 0.1},   
-	           {field:"departmentHead",title:"系主任",width:bodyWidth * 0.1},    
-	           {field:"secretary",title:"书记",width:bodyWidth * 0.05}, 
+	           {field:"professionCode",title:"专业代号",width:bodyWidth * 0.1},
+	           {field:"professionName",title:"专业名称",width:bodyWidth * 0.1},
+	           {field:"departmentHead",title:"系主任",width:bodyWidth * 0.1},
+	           {field:"secretary",title:"书记",width:bodyWidth * 0.05},
 	        ]]
 	    });
-		
-		if("${courseCount}" == 0){			
+
+		if("${courseCount}" == 0){
 			var txt= "本学期暂无考试安排！";
 			window.wxc.xcConfirm(txt, window.wxc.xcConfirm.typeEnum.info,{
 				onOk:function(){
@@ -74,35 +74,35 @@
 			<dt class="qs">
 				<i class="am-icon-users"></i>
 			</dt>
-			<dd>${professionCount}</dd>
+			<dd th:text="${professionCount}"></dd>
 			<dd class="f12">专业</dd>
 		</dl>
 		<dl data-am-scrollspy="{animation: 'slide-right', delay: 300}">
 			<dt class="cs">
 				<i class="am-icon-area-chart"></i>
 			</dt>
-			<dd><a href="course/courseInfo">${courseCount}</a></dd>
+			<dd><a href="course/courseInfo" th:text="${courseCount}"></a></dd>
 			<dd class="f12">应考科目</dd>
 		</dl>
 		<dl data-am-scrollspy="{animation: 'slide-right', delay: 600}">
 			<dt class="hs">
 				<i class="am-icon-shopping-cart"></i>
 			</dt>
-			<dd><a href="student/studentInfo">${studentCount}</a></dd>
+			<dd><a href="student/studentInfo" th:text="${studentCount}"></a></dd>
 			<dd class="f12">应考学生</dd>
 		</dl>
 		<dl data-am-scrollspy="{animation: 'slide-right', delay: 900}">
 			<dt class="ls">
 				<i class="am-icon-cny"></i>
 			</dt>
-			<dd><a href="teacher/teacherInfo">${teacherCount}</a></dd>
+			<dd><a href="teacher/teacherInfo" th:text="${teacherCount}"></a></dd>
 			<dd class="f12">学院老师</dd>
 		</dl>
 	</div>
 	<div class="admin-biaoge">
 		<div class="xinxitj" style="text-align:center;width:1250px;">专业信息概况</div>
 		<div id = "professionDataGrid"></div>
-		
+
 	</div>
 
 

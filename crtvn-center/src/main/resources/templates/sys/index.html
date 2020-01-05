@@ -27,10 +27,10 @@
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <img src="/images/user2-160x160.jpg" class="user-image" alt="User Image">
-                                <span class="hidden-xs">${adminName}</span>
+                                <span class="hidden-xs" th th:text="${adminName}"></span>
                             </a>
                             <ul class="dropdown-menu pull-right">                           
-                                <li><a href="sys/login"><i class="ace-icon fa fa-power-off"></i>安全退出</a></li>
+                                <li><a href="login"><i class="ace-icon fa fa-power-off"></i>安全退出</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -75,7 +75,7 @@
             </div>
             <div class="content-iframe" style="overflow: hidden;">
                 <div class="mainContent" id="content-main" style="margin: 10px; margin-bottom: 0px; padding: 0;">
-                    <iframe class="LRADMS_iframe" width="100%" height="100%" src="sys/collegeInfo" frameborder="0" data-id="sys/collegeInfo"></iframe>
+                    <iframe class="LRADMS_iframe" width="100%" height="100%" src="collegeInfo" frameborder="0" data-id="sys/collegeInfo"></iframe>
                 </div>
             </div>
         </div>

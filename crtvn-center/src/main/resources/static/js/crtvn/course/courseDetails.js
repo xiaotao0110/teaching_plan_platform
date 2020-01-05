@@ -22,7 +22,7 @@ $(function(){
 
 	 //教学班号下拉框
 	 $('#classs').combobox({
-		url: "classs/classsSelect?professionId="+$('#PID').val()+"&courseId="+$('#CID').val(),                        
+		url: "http://127.0.0.1:1003/classs/classsSelect?professionId="+$('#PID').val()+"&courseId="+$('#CID').val(),
         valueField: 'id',
         textField: 'text',
         width:150,
