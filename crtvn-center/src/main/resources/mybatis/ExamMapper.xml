@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hnieu.crtvn.dao.ExamMapper">
+  <resultMap id="BaseResultMap" type="com.hnieu.crtvn.entity.Exam">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="EID" jdbcType="INTEGER" property="eid" />
+    <result column="CCID" jdbcType="INTEGER" property="ccid" />
+    <result column="SID" jdbcType="INTEGER" property="sid" />
+    <result column="seatNo" jdbcType="INTEGER" property="seatno" />
+    <result column="reserve1" jdbcType="INTEGER" property="reserve1" />
+    <result column="reserve2" jdbcType="VARCHAR" property="reserve2" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, EID, CCID, SID, seatNo, reserve1, reserve2
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from exam
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from exam
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.hnieu.crtvn.entity.Exam">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into exam (EID, CCID, SID, 
+      seatNo, reserve1, reserve2
+      )
+    values (#{eid,jdbcType=INTEGER}, #{ccid,jdbcType=INTEGER}, #{sid,jdbcType=INTEGER}, 
+      #{seatno,jdbcType=INTEGER}, #{reserve1,jdbcType=INTEGER}, #{reserve2,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.hnieu.crtvn.entity.Exam">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into exam
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="eid != null">
+        EID,
+      </if>
+      <if test="ccid != null">
+        CCID,
+      </if>
+      <if test="sid != null">
+        SID,
+      </if>
+      <if test="seatno != null">
+        seatNo,
+      </if>
+      <if test="reserve1 != null">
+        reserve1,
+      </if>
+      <if test="reserve2 != null">
+        reserve2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="eid != null">
+        #{eid,jdbcType=INTEGER},
+      </if>
+      <if test="ccid != null">
+        #{ccid,jdbcType=INTEGER},
+      </if>
+      <if test="sid != null">
+        #{sid,jdbcType=INTEGER},
+      </if>
+      <if test="seatno != null">
+        #{seatno,jdbcType=INTEGER},
+      </if>
+      <if test="reserve1 != null">
+        #{reserve1,jdbcType=INTEGER},
+      </if>
+      <if test="reserve2 != null">
+        #{reserve2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hnieu.crtvn.entity.Exam">
+    update exam
+    <set>
+      <if test="eid != null">
+        EID = #{eid,jdbcType=INTEGER},
+      </if>
+      <if test="ccid != null">
+        CCID = #{ccid,jdbcType=INTEGER},
+      </if>
+      <if test="sid != null">
+        SID = #{sid,jdbcType=INTEGER},
+      </if>
+      <if test="seatno != null">
+        seatNo = #{seatno,jdbcType=INTEGER},
+      </if>
+      <if test="reserve1 != null">
+        reserve1 = #{reserve1,jdbcType=INTEGER},
+      </if>
+      <if test="reserve2 != null">
+        reserve2 = #{reserve2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hnieu.crtvn.entity.Exam">
+    update exam
+    set EID = #{eid,jdbcType=INTEGER},
+      CCID = #{ccid,jdbcType=INTEGER},
+      SID = #{sid,jdbcType=INTEGER},
+      seatNo = #{seatno,jdbcType=INTEGER},
+      reserve1 = #{reserve1,jdbcType=INTEGER},
+      reserve2 = #{reserve2,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

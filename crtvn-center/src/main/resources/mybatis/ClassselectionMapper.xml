@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hnieu.crtvn.dao.ClassselectionMapper">
+  <resultMap id="BaseResultMap" type="com.hnieu.crtvn.entity.Classselection">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="CSID" jdbcType="INTEGER" property="csid" />
+    <result column="COID" jdbcType="INTEGER" property="coid" />
+    <result column="reserve1" jdbcType="INTEGER" property="reserve1" />
+    <result column="reserve2" jdbcType="VARCHAR" property="reserve2" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, CSID, COID, reserve1, reserve2
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from classselection
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from classselection
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.hnieu.crtvn.entity.Classselection">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into classselection (CSID, COID, reserve1, 
+      reserve2)
+    values (#{csid,jdbcType=INTEGER}, #{coid,jdbcType=INTEGER}, #{reserve1,jdbcType=INTEGER}, 
+      #{reserve2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hnieu.crtvn.entity.Classselection">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into classselection
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="csid != null">
+        CSID,
+      </if>
+      <if test="coid != null">
+        COID,
+      </if>
+      <if test="reserve1 != null">
+        reserve1,
+      </if>
+      <if test="reserve2 != null">
+        reserve2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="csid != null">
+        #{csid,jdbcType=INTEGER},
+      </if>
+      <if test="coid != null">
+        #{coid,jdbcType=INTEGER},
+      </if>
+      <if test="reserve1 != null">
+        #{reserve1,jdbcType=INTEGER},
+      </if>
+      <if test="reserve2 != null">
+        #{reserve2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hnieu.crtvn.entity.Classselection">
+    update classselection
+    <set>
+      <if test="csid != null">
+        CSID = #{csid,jdbcType=INTEGER},
+      </if>
+      <if test="coid != null">
+        COID = #{coid,jdbcType=INTEGER},
+      </if>
+      <if test="reserve1 != null">
+        reserve1 = #{reserve1,jdbcType=INTEGER},
+      </if>
+      <if test="reserve2 != null">
+        reserve2 = #{reserve2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hnieu.crtvn.entity.Classselection">
+    update classselection
+    set CSID = #{csid,jdbcType=INTEGER},
+      COID = #{coid,jdbcType=INTEGER},
+      reserve1 = #{reserve1,jdbcType=INTEGER},
+      reserve2 = #{reserve2,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

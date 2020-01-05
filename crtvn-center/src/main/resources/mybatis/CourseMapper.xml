@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hnieu.crtvn.dao.CourseMapper">
+  <resultMap id="BaseResultMap" type="com.hnieu.crtvn.entity.Course">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="PID" jdbcType="INTEGER" property="pid" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="startcd" jdbcType="VARCHAR" property="startcd" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="mark" jdbcType="INTEGER" property="mark" />
+    <result column="nature" jdbcType="INTEGER" property="nature" />
+    <result column="credit" jdbcType="INTEGER" property="credit" />
+    <result column="manner" jdbcType="INTEGER" property="manner" />
+    <result column="reserve1" jdbcType="INTEGER" property="reserve1" />
+    <result column="reserve2" jdbcType="VARCHAR" property="reserve2" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, PID, name, startcd, code, mark, nature, credit, manner, reserve1, reserve2
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from course
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from course
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.hnieu.crtvn.entity.Course">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into course (PID, name, startcd, 
+      code, mark, nature, 
+      credit, manner, reserve1, 
+      reserve2)
+    values (#{pid,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{startcd,jdbcType=VARCHAR}, 
+      #{code,jdbcType=VARCHAR}, #{mark,jdbcType=INTEGER}, #{nature,jdbcType=INTEGER}, 
+      #{credit,jdbcType=INTEGER}, #{manner,jdbcType=INTEGER}, #{reserve1,jdbcType=INTEGER}, 
+      #{reserve2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hnieu.crtvn.entity.Course">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into course
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pid != null">
+        PID,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="startcd != null">
+        startcd,
+      </if>
+      <if test="code != null">
+        code,
+      </if>
+      <if test="mark != null">
+        mark,
+      </if>
+      <if test="nature != null">
+        nature,
+      </if>
+      <if test="credit != null">
+        credit,
+      </if>
+      <if test="manner != null">
+        manner,
+      </if>
+      <if test="reserve1 != null">
+        reserve1,
+      </if>
+      <if test="reserve2 != null">
+        reserve2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pid != null">
+        #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="startcd != null">
+        #{startcd,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="mark != null">
+        #{mark,jdbcType=INTEGER},
+      </if>
+      <if test="nature != null">
+        #{nature,jdbcType=INTEGER},
+      </if>
+      <if test="credit != null">
+        #{credit,jdbcType=INTEGER},
+      </if>
+      <if test="manner != null">
+        #{manner,jdbcType=INTEGER},
+      </if>
+      <if test="reserve1 != null">
+        #{reserve1,jdbcType=INTEGER},
+      </if>
+      <if test="reserve2 != null">
+        #{reserve2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hnieu.crtvn.entity.Course">
+    update course
+    <set>
+      <if test="pid != null">
+        PID = #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="startcd != null">
+        startcd = #{startcd,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="mark != null">
+        mark = #{mark,jdbcType=INTEGER},
+      </if>
+      <if test="nature != null">
+        nature = #{nature,jdbcType=INTEGER},
+      </if>
+      <if test="credit != null">
+        credit = #{credit,jdbcType=INTEGER},
+      </if>
+      <if test="manner != null">
+        manner = #{manner,jdbcType=INTEGER},
+      </if>
+      <if test="reserve1 != null">
+        reserve1 = #{reserve1,jdbcType=INTEGER},
+      </if>
+      <if test="reserve2 != null">
+        reserve2 = #{reserve2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hnieu.crtvn.entity.Course">
+    update course
+    set PID = #{pid,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      startcd = #{startcd,jdbcType=VARCHAR},
+      code = #{code,jdbcType=VARCHAR},
+      mark = #{mark,jdbcType=INTEGER},
+      nature = #{nature,jdbcType=INTEGER},
+      credit = #{credit,jdbcType=INTEGER},
+      manner = #{manner,jdbcType=INTEGER},
+      reserve1 = #{reserve1,jdbcType=INTEGER},
+      reserve2 = #{reserve2,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
