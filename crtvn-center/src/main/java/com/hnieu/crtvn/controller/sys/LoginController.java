@@ -43,7 +43,9 @@ public class LoginController {
 	@GetMapping(value = "/verificationCode")
 	@ResponseBody
 	public void verificationCode(HttpServletRequest req, HttpServletResponse response) {
-		
+
+		//todo: 保存到redis里面
+
 		ByteArrayOutputStream output = new ByteArrayOutputStream();
 		String code = CaptchaUtil.drawImg(output);
 		// 将四位数字的验证码保存到Session中。
