@@ -26,13 +26,12 @@ $(function(){
 	function sumbitFun(){
 		
 		var startcd = $('#startcd').val();
-		var startcd
-		
+
 		var identity = $('#identity').val();
 		if(identity == 'admin'){
-			$('#loginForm').attr('action','login/adminLogin');		
+			$('#loginForm').attr('action','http://127.0.0.1:1003/login/adminLogin');
 		}else if(identity == 'academician'){
-			$('#loginForm').attr('action','login/academicianLogin');
+			$('#loginForm').attr('action','http://127.0.0.1:1003/login/academicianLogin');
 		}
 		$('#loginForm').submit();	
 	}

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html >
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 
 <title></title>
@@ -7,7 +7,8 @@
 <script src="/js/jquery-1.9.1.min.js" ></script>
 	
 <script type="text/javascript" src="/js/crtvn/sys/login.js"></script>
-		
+<script type="text/javascript" src="/js/crtvn/common.js"></script>
+
 </head>
 <body>
 	<div class="login">
@@ -45,10 +46,10 @@
 					<div class="code clearfix">
 						<span>验证码：</span> <input id="code" type="text" name="code" />
 						<em>
-						 <img src="verificationCode" width="127" height="35" id="codeImg" alt="点击更换" title="点击更换">
+						 <img src="http://127.0.0.1:1003/login/verificationCode" width="127" height="35" id="codeImg" alt="点击更换" title="点击更换">
 						</em>
 					</div>
-					<span style=" padding-left:120px;color:red;" ></span>
+					<span style=" padding-left:120px;color:red;" th:text="${code_msg}"></span>
 					<div class="btn">
 						<span id="login">
 							<input type="button" value="登录" id="loginId"/>

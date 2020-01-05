@@ -29,6 +29,19 @@ spring:
   resources:
     static-locations: classpath:/static/
 
+  jpa:
+    database: MYSQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+        current_session_context_class: org.springframework.orm.hibernate5.SpringSessionContext
+
+
   devtools:
     restart:
       enabled: true  #设置开启热部署

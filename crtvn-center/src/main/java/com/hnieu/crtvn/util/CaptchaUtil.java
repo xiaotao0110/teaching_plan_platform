@@ -1,16 +1,13 @@
 package com.hnieu.crtvn.util;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics2D;
+import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.font.FontRenderContext;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.Random;
-
-import javax.imageio.ImageIO;
 
 public class CaptchaUtil {
 	
