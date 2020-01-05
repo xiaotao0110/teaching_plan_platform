@@ -7,8 +7,6 @@ server:
 #eureka client配置
 eureka:
   client:
-    healthcheck:
-      enabled: true
     serviceUrl:
       defaultZone:  http://127.0.0.1:1000/eureka
   instance:
