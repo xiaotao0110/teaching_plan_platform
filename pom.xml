@@ -21,8 +21,6 @@
         <module>business-center</module>
         <!-- DAO中心 -->
         <module>db-center</module>
-        <!-- web页面门户 -->
-        <module>web-portal</module>
 
         <!--考试中心-->
         <module>crtvn-center</module>
