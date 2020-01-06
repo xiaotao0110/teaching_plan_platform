@@ -1,7 +1,5 @@
 $(function(){
 
-	alert(getBaseUrl());
-
 	var myDate = new Date();
 	var year = myDate.getFullYear(); 
 	var month = myDate.getMonth(); //获取当前月份(0-11,0代表1月)

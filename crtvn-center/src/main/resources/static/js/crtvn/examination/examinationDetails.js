@@ -3,7 +3,7 @@ $(function(){
 	var bodyHeight = $(window).height();
 	var bodyWidth = $(window).width();
 	$("#examDataGrid").datagrid({
-		url:$('#examForm').attr('action'),
+		url:getBaseUrl() +$('#examForm').attr('action'),
         title: "考试信息列表",
         width: bodyWidth - 20,  
         height: bodyHeight-180,       
@@ -26,7 +26,7 @@ $(function(){
 	$('#downloade').click(function(){	
 		$.messager.confirm('提示','是否下载查询到的考场对应的考试信息？',function(r){   
 			if (r){   
-			  window.location.href="examination/exportExcelExamn?examinationId="+$('#examinationId').val();
+			  window.location.href=getBaseUrl() +"examination/exportExcelExamn?examinationId="+$('#examinationId').val();
 			}   
 		});
 		 

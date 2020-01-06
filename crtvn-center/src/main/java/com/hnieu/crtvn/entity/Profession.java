@@ -97,7 +97,7 @@ public class Profession implements java.io.Serializable {
 		this.name = name;
 	}
 
-	@Column(name = "departmentHead", nullable = false, length = 10)
+	@Column(name = "department_head", nullable = false, length = 10)
 	public String getDepartmentHead() {
 		return this.departmentHead;
 	}

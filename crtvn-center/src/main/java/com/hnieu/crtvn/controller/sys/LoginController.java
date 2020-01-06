@@ -109,12 +109,13 @@ public class LoginController {
 
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         String code = CaptchaUtil.drawImg(output);
+
         // 将四位数字的验证码保存到Session中。
-//		HttpSession session = req.getSession();
-//		session.setAttribute(SESSION_SECURITY_CODE, code);
+		HttpSession session = req.getSession();
+		session.setAttribute(SESSION_SECURITY_CODE, code);
 
 
-		// TODO: 2020/1/5  存入redis，为数组结构，判断是否存在
+		// TODO: 2020/1/5  以后存入redis，为数组结构，判断是否存在
 		//redisTemplate.boundValueOps("");
 
         try {

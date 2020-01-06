@@ -87,7 +87,7 @@ public class Exam implements java.io.Serializable {
 		this.student = student;
 	}
 
-	@Column(name = "seatNo", nullable = false)
+	@Column(name = "seat_no", nullable = false)
 	public int getSeatNo() {
 		return this.seatNo;
 	}
