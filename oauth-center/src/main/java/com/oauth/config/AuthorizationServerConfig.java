@@ -27,12 +27,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 配置授权服务器
+ * 配置授权服务器 @EnableAuthorizationServer
  */
 @Configuration
 @EnableAuthorizationServer
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
 
+    /**
+     * 使用密码授权
+     */
     @Autowired
     private AuthenticationManager authenticationManager;
 
@@ -55,36 +58,43 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-        //允许表单提交
-        security.allowFormAuthenticationForClients()
-                .checkTokenAccess("permitAll()")
-                .tokenKeyAccess("permitAll()");
+        security.allowFormAuthenticationForClients() //允许表单提交
+                .checkTokenAccess("permitAll()")  //允许token_Key访问
+                .tokenKeyAccess("permitAll()");  //允许check_token访问
     }
 
+
+    /**
+     * 存储客户端信息  采用inMemory内存方式
+     * 可以使用jdbc方式  clients.withClientDetails(new JdbcClientDetailsService(dataSource)); 配置数据源
+     */
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory()
-                .withClient("client_admin")
-                .secret(passwordEncoder.encode("client_admin"))
-                .authorizedGrantTypes("password", "client_credentials", "refresh_token")
-                .scopes("read")
+                .withClient("client_admin")  //允许请求的客户端id,可以多个
+                .secret(passwordEncoder.encode("client_admin")) //客户端密码
+                .authorizedGrantTypes("password", "client_credentials", "refresh_token") //授权模式
+                .scopes("read")     //访问范围
                 .resourceIds("resource")
-                .authorities("admin")
-                .accessTokenValiditySeconds(3 * 60 * 60)
-                .refreshTokenValiditySeconds(6 * 60 * 60);
+                .accessTokenValiditySeconds(3 * 60 * 60)    //access_token有效期
+                .refreshTokenValiditySeconds(6 * 60 * 60);  //refresh_token有效期
     }
 
+
+    /**
+     *配置令牌 管理
+     *采用jwt存储token
+     *采用何种授权模式，刷新token配置等等
+     */
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-
-
         TokenEnhancerChain enhancerChain = new TokenEnhancerChain();
         List<TokenEnhancer> enhancerList = new ArrayList<>();
         enhancerList.add(jwtTokenEnhancer);
         enhancerList.add(jwtAccessTokenConverter);
         enhancerChain.setTokenEnhancers(enhancerList);
 
-        endpoints.authenticationManager(authenticationManager)
+        endpoints.authenticationManager(authenticationManager)  //密码授权模式
                 .tokenStore(jwtTokenStore)
                 .accessTokenConverter(jwtAccessTokenConverter)
                 .tokenEnhancer(enhancerChain)

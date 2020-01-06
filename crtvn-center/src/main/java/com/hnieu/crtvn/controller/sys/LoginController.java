@@ -21,7 +21,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 @Controller
-@RequestMapping(value = "login")
+@RequestMapping(value = "/login")
 public class LoginController {
 
     private final String SESSION_SECURITY_CODE = "imageCode";
@@ -41,14 +41,14 @@ public class LoginController {
     /**
      * 管理员登录验证
      */
-    @RequestMapping(value = "adminLogin")
+    @RequestMapping(value = "/adminLogin")
     public String login(Admin admin, String code, final RedirectAttributes redirectAttributes) {
         HttpSession session = request.getSession();
 
         String imageCode = (String) session.getAttribute(SESSION_SECURITY_CODE);
         if (code == null || code.length() == 0) {
             redirectAttributes.addFlashAttribute("code_msg", "验证码错误！");
-            return "redirect:/login";
+            return "redirect:/login.html";
         } else {
             if (code.toUpperCase().equals(imageCode.toUpperCase())) {
                 Admin adminBean = adminService.findAdminByName(admin);
@@ -57,10 +57,10 @@ public class LoginController {
                     return "redirect:/admin/adminInfo";
                 }
                 redirectAttributes.addFlashAttribute("code_msg", "密码或账号错误！");
-                return "redirect:/login";
+                return "redirect:/login.html";
             } else {
                 redirectAttributes.addFlashAttribute("code_msg", "验证码错误！");
-                return "redirect:/login";
+                return "redirect:/login.html";
             }
         }
     }
@@ -68,7 +68,7 @@ public class LoginController {
     /**
      * 教务人员登录验证
      */
-    @RequestMapping(value = "academicianLogin")
+    @RequestMapping(value = "/academicianLogin")
     public String login(Academician academician, String code, Course course, final RedirectAttributes redirectAttributes) {
 
         HttpSession session = request.getSession();
@@ -76,7 +76,7 @@ public class LoginController {
         String imageCode = (String) session.getAttribute(SESSION_SECURITY_CODE);
         if (code == null || code.length() == 0) {
             redirectAttributes.addFlashAttribute("code_msg", "验证码错误！");
-            return "redirect:/login";
+            return "redirect:/login.html";
         } else {
             if (code.toUpperCase().equals(imageCode.toUpperCase())) {
                 Academician academicianBean = academicianService.findAcademicianByName(academician);
@@ -89,11 +89,11 @@ public class LoginController {
                     return "redirect:/index";
                 }
                 redirectAttributes.addFlashAttribute("code_msg", "密码或账号错误！");
-                return "redirect/login";
+                return "redirect:/login.html";
 
             } else {
                 redirectAttributes.addFlashAttribute("code_msg", "验证码错误！");
-                return "redirect:/login";
+                return "redirect:/login.html";
             }
         }
 
@@ -103,7 +103,7 @@ public class LoginController {
     /**
      * 验证码
      */
-    @RequestMapping(value = "verificationCode")
+    @RequestMapping(value = "/verificationCode")
     @ResponseBody
     public void verificationCode(HttpServletRequest req, HttpServletResponse response) {
 

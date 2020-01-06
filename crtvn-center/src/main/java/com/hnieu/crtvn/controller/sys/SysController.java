@@ -25,18 +25,9 @@ public class SysController {
 	private ITeacherService teacherService;
 
 	/**
-	 * 跳转到登录页面
-	 */
-	@RequestMapping(value = "/login")
-    public String loginToView(Model model){
-		model.addAttribute("msg", "");
-		return "sys/login";
-    }
-
-	/**
 	 * 首页
 	 */
-	@RequestMapping(value = "index")
+	@RequestMapping(value = "/index")
     public String indexToView(Model model){
 		return "sys/index";
     }
@@ -44,7 +35,7 @@ public class SysController {
 	/**
 	 * 学院信息
 	 */
-	@RequestMapping(value = "collegeInfo")
+	@RequestMapping(value = "/collegeInfo")
     public String collegeInfoToView(Model model){
 
 		model.addAttribute("professionCount", professionService.findProfessionCount());
