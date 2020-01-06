@@ -20,6 +20,8 @@ public class CollegeController {
 	/**
 	 *院系信息下拉框
 	 */
+
+	//@PreAuthorize("hasAuthority('admin')")
 	@ResponseBody
 	@RequestMapping(value = "collegeSelect")
     public List<Map<String, Object>> collegeSelect(Model model){

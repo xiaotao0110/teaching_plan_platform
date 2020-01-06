@@ -3,6 +3,7 @@ package com.oauth.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,7 +14,8 @@ import org.springframework.security.oauth2.provider.ClientDetails;
 import org.springframework.security.oauth2.provider.ClientDetailsService;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
@@ -37,7 +39,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                 return new User(username,clientSecret,AuthorityUtils.commaSeparatedStringToAuthorityList(""));
             }
         }
+
+
+        Collection<SimpleGrantedAuthority> collection = new HashSet<SimpleGrantedAuthority>();
+        collection.add(new SimpleGrantedAuthority("admin"));
+
         return new User(username,passwordEncoder.encode("admin"),
-                true, true, true, true, new ArrayList<>());
+                true, true, true, true, collection);
     }
 }
