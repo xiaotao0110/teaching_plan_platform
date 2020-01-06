@@ -84,11 +84,13 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
         //所有请求必须认证通过
         http.authorizeRequests()
                 //下边的路径放行
-                .antMatchers("/login/**", "/collegeInfo/**",
+                .antMatchers("/login/**", "/collegeInfo/**","/applyToken/**",
                         "/resources/**", "/templates/**", "/static/**",
                         "/css/**", "/fonts/**", "/i/**", "/images/**", "/js/**",
                         "/**/*.ico", "/**/*.html").permitAll()
-                .anyRequest().authenticated();
+                .anyRequest().authenticated()
+                .and()
+                .csrf().disable();
     }
 
 

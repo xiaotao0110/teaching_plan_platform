@@ -48,7 +48,7 @@ public class LoginController {
         String imageCode = (String) session.getAttribute(SESSION_SECURITY_CODE);
         if (code == null || code.length() == 0) {
             redirectAttributes.addFlashAttribute("code_msg", "验证码错误！");
-            return "redirect:/login.html";
+            return "redirect:/login";
         } else {
             if (code.toUpperCase().equals(imageCode.toUpperCase())) {
                 Admin adminBean = adminService.findAdminByName(admin);
@@ -57,10 +57,10 @@ public class LoginController {
                     return "redirect:/admin/adminInfo";
                 }
                 redirectAttributes.addFlashAttribute("code_msg", "密码或账号错误！");
-                return "redirect:/login.html";
+                return "redirect:/login";
             } else {
                 redirectAttributes.addFlashAttribute("code_msg", "验证码错误！");
-                return "redirect:/login.html";
+                return "redirect:/login";
             }
         }
     }
@@ -76,7 +76,7 @@ public class LoginController {
         String imageCode = (String) session.getAttribute(SESSION_SECURITY_CODE);
         if (code == null || code.length() == 0) {
             redirectAttributes.addFlashAttribute("code_msg", "验证码错误！");
-            return "redirect:/login.html";
+            return "redirect:/login";
         } else {
             if (code.toUpperCase().equals(imageCode.toUpperCase())) {
                 Academician academicianBean = academicianService.findAcademicianByName(academician);
@@ -89,11 +89,11 @@ public class LoginController {
                     return "redirect:/index";
                 }
                 redirectAttributes.addFlashAttribute("code_msg", "密码或账号错误！");
-                return "redirect:/login.html";
+                return "redirect/login";
 
             } else {
                 redirectAttributes.addFlashAttribute("code_msg", "验证码错误！");
-                return "redirect:/login.html";
+                return "redirect:/login";
             }
         }
 
