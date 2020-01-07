@@ -86,7 +86,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
         http.authorizeRequests()
                 //下边的路径放行
-                .antMatchers("/login/**", "/collegeInfo/**","/applyToken/**",
+                .antMatchers("/login/**", "/**/*Info", "/**/*Details", "/applyToken/**",
                         "/resources/**", "/templates/**", "/static/**",
                         "/css/**", "/fonts/**", "/i/**", "/images/**", "/js/**",
                         "/**/*.ico", "/**/*.html").permitAll()

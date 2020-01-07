@@ -94,8 +94,7 @@
                         }
                     });
                 }
-            }
-            else {
+            } else {
                 $(this).parents('.menuTab').remove();
                 $('.mainContent .LRADMS_iframe').each(function () {
                     if ($(this).data('id') == closeTabId) {
@@ -205,7 +204,8 @@
             }, "fast");
         },
         scrollToTab: function (element) {
-            var marginLeftVal = $.learuntab.calSumWidth($(element).prevAll()), marginRightVal = $.learuntab.calSumWidth($(element).nextAll());
+            var marginLeftVal = $.learuntab.calSumWidth($(element).prevAll()),
+                marginRightVal = $.learuntab.calSumWidth($(element).nextAll());
             var tabOuterWidth = $.learuntab.calSumWidth($(".content-tabs").children().not(".menuTabs"));
             var visibleWidth = $(".content-tabs").outerWidth(true) - tabOuterWidth;
             var scrollVal = 0;
@@ -305,28 +305,350 @@
 //                { "F_ModuleId": "2", "F_ParentId": "0", "F_EnCode": "SysManage", "F_FullName": "专业管理", "F_Icon": "fa fa-desktop", "F_UrlAddress": "/default", "F_Target": "expand", "F_IsMenu": 0, "F_AllowExpand": 1, "F_IsPublic": 0, "F_AllowEdit": null, "F_AllowDelete": null, "F_SortCode": 1, "F_DeleteMark": 0, "F_EnabledMark": 1, "F_Description": null, "F_CreateDate": null, "F_CreateUserId": null, "F_CreateUserName": null, "F_ModifyDate": "2015-11-17 11:22:46", "F_ModifyUserId": "System", "F_ModifyUserName": "超级管理员" },
 //                { "F_ModuleId": "21", "F_ParentId": "2", "F_EnCode": "OrganizeManage", "F_FullName": "专业信息", "F_Icon": "fa fa-sitemap", "F_UrlAddress": "book02.html", "F_Target": "iframe", "F_IsMenu": 1, "F_AllowExpand": 1, "F_IsPublic": 0, "F_AllowEdit": null, "F_AllowDelete": null, "F_SortCode": 1, "F_DeleteMark": 0, "F_EnabledMark": 1, "F_Description": null, "F_CreateDate": null, "F_CreateUserId": null, "F_CreateUserName": null, "F_ModifyDate": "2016-04-29 11:55:28", "F_ModifyUserId": "System", "F_ModifyUserName": "超级管理员" },
 //               
-                { "F_ModuleId": "3", "F_ParentId": "0", "F_EnCode": "SysManage", "F_FullName": "课程管理", "F_Icon": "fa fa-desktop", "F_UrlAddress": "/default", "F_Target": "expand", "F_IsMenu": 0, "F_AllowExpand": 1, "F_IsPublic": 0, "F_AllowEdit": null, "F_AllowDelete": null, "F_SortCode": 1, "F_DeleteMark": 0, "F_EnabledMark": 1, "F_Description": null, "F_CreateDate": null, "F_CreateUserId": null, "F_CreateUserName": null, "F_ModifyDate": "2015-11-17 11:22:46", "F_ModifyUserId": "System", "F_ModifyUserName": "超级管理员" },
-                { "F_ModuleId": "31", "F_ParentId": "3", "F_EnCode": "OrganizeManage", "F_FullName": "课程信息", "F_Icon": "fa fa-sitemap", "F_UrlAddress": "course/courseInfo", "F_Target": "iframe", "F_IsMenu": 1, "F_AllowExpand": 1, "F_IsPublic": 0, "F_AllowEdit": null, "F_AllowDelete": null, "F_SortCode": 1, "F_DeleteMark": 0, "F_EnabledMark": 1, "F_Description": null, "F_CreateDate": null, "F_CreateUserId": null, "F_CreateUserName": null, "F_ModifyDate": "2016-04-29 11:55:28", "F_ModifyUserId": "System", "F_ModifyUserName": "超级管理员" },   
-                
-                { "F_ModuleId": "4", "F_ParentId": "0", "F_EnCode": "SysManage", "F_FullName": "教师管理", "F_Icon": "fa fa-desktop", "F_UrlAddress": "/default", "F_Target": "expand", "F_IsMenu": 0, "F_AllowExpand": 1, "F_IsPublic": 0, "F_AllowEdit": null, "F_AllowDelete": null, "F_SortCode": 1, "F_DeleteMark": 0, "F_EnabledMark": 1, "F_Description": null, "F_CreateDate": null, "F_CreateUserId": null, "F_CreateUserName": null, "F_ModifyDate": "2015-11-17 11:22:46", "F_ModifyUserId": "System", "F_ModifyUserName": "超级管理员" },
-                { "F_ModuleId": "41", "F_ParentId": "4", "F_EnCode": "OrganizeManage", "F_FullName": "教师信息", "F_Icon": "fa fa-sitemap", "F_UrlAddress": "teacher/teacherInfo", "F_Target": "iframe", "F_IsMenu": 1, "F_AllowExpand": 1, "F_IsPublic": 0, "F_AllowEdit": null, "F_AllowDelete": null, "F_SortCode": 1, "F_DeleteMark": 0, "F_EnabledMark": 1, "F_Description": null, "F_CreateDate": null, "F_CreateUserId": null, "F_CreateUserName": null, "F_ModifyDate": "2016-04-29 11:55:28", "F_ModifyUserId": "System", "F_ModifyUserName": "超级管理员" },
-                
-                { "F_ModuleId": "5", "F_ParentId": "0", "F_EnCode": "SysManage", "F_FullName": "班级管理", "F_Icon": "fa fa-desktop", "F_UrlAddress": "/default", "F_Target": "expand", "F_IsMenu": 0, "F_AllowExpand": 1, "F_IsPublic": 0, "F_AllowEdit": null, "F_AllowDelete": null, "F_SortCode": 1, "F_DeleteMark": 0, "F_EnabledMark": 1, "F_Description": null, "F_CreateDate": null, "F_CreateUserId": null, "F_CreateUserName": null, "F_ModifyDate": "2015-11-17 11:22:46", "F_ModifyUserId": "System", "F_ModifyUserName": "超级管理员" },
-                { "F_ModuleId": "51", "F_ParentId": "5", "F_EnCode": "OrganizeManage", "F_FullName": "班级信息", "F_Icon": "fa fa-sitemap", "F_UrlAddress": "classs/classsInfo", "F_Target": "iframe", "F_IsMenu": 1, "F_AllowExpand": 1, "F_IsPublic": 0, "F_AllowEdit": null, "F_AllowDelete": null, "F_SortCode": 1, "F_DeleteMark": 0, "F_EnabledMark": 1, "F_Description": null, "F_CreateDate": null, "F_CreateUserId": null, "F_CreateUserName": null, "F_ModifyDate": "2016-04-29 11:55:28", "F_ModifyUserId": "System", "F_ModifyUserName": "超级管理员" },
-               
-                { "F_ModuleId": "6", "F_ParentId": "0", "F_EnCode": "SysManage", "F_FullName": "学生管理", "F_Icon": "fa fa-desktop", "F_UrlAddress": "/default", "F_Target": "expand", "F_IsMenu": 0, "F_AllowExpand": 1, "F_IsPublic": 0, "F_AllowEdit": null, "F_AllowDelete": null, "F_SortCode": 1, "F_DeleteMark": 0, "F_EnabledMark": 1, "F_Description": null, "F_CreateDate": null, "F_CreateUserId": null, "F_CreateUserName": null, "F_ModifyDate": "2015-11-17 11:22:46", "F_ModifyUserId": "System", "F_ModifyUserName": "超级管理员" },
-                { "F_ModuleId": "61", "F_ParentId": "6", "F_EnCode": "OrganizeManage", "F_FullName": "学生信息", "F_Icon": "fa fa-sitemap", "F_UrlAddress": "student/studentInfo", "F_Target": "iframe", "F_IsMenu": 1, "F_AllowExpand": 1, "F_IsPublic": 0, "F_AllowEdit": null, "F_AllowDelete": null, "F_SortCode": 1, "F_DeleteMark": 0, "F_EnabledMark": 1, "F_Description": null, "F_CreateDate": null, "F_CreateUserId": null, "F_CreateUserName": null, "F_ModifyDate": "2016-04-29 11:55:28", "F_ModifyUserId": "System", "F_ModifyUserName": "超级管理员" },
-                
-                { "F_ModuleId": "7", "F_ParentId": "0", "F_EnCode": "SysManage", "F_FullName": "教室管理", "F_Icon": "fa fa-desktop", "F_UrlAddress": "/default", "F_Target": "expand", "F_IsMenu": 0, "F_AllowExpand": 1, "F_IsPublic": 0, "F_AllowEdit": null, "F_AllowDelete": null, "F_SortCode": 1, "F_DeleteMark": 0, "F_EnabledMark": 1, "F_Description": null, "F_CreateDate": null, "F_CreateUserId": null, "F_CreateUserName": null, "F_ModifyDate": "2015-11-17 11:22:46", "F_ModifyUserId": "System", "F_ModifyUserName": "超级管理员" },
-                { "F_ModuleId": "71", "F_ParentId": "7", "F_EnCode": "OrganizeManage", "F_FullName": "教室信息", "F_Icon": "fa fa-sitemap", "F_UrlAddress": "classroom/classroomInfo", "F_Target": "iframe", "F_IsMenu": 1, "F_AllowExpand": 1, "F_IsPublic": 0, "F_AllowEdit": null, "F_AllowDelete": null, "F_SortCode": 1, "F_DeleteMark": 0, "F_EnabledMark": 1, "F_Description": null, "F_CreateDate": null, "F_CreateUserId": null, "F_CreateUserName": null, "F_ModifyDate": "2016-04-29 11:55:28", "F_ModifyUserId": "System", "F_ModifyUserName": "超级管理员" },
-			
-                { "F_ModuleId": "8", "F_ParentId": "0", "F_EnCode": "SysManage", "F_FullName": "排考管理", "F_Icon": "fa fa-desktop", "F_UrlAddress": "/default", "F_Target": "expand", "F_IsMenu": 0, "F_AllowExpand": 1, "F_IsPublic": 0, "F_AllowEdit": null, "F_AllowDelete": null, "F_SortCode": 1, "F_DeleteMark": 0, "F_EnabledMark": 1, "F_Description": null, "F_CreateDate": null, "F_CreateUserId": null, "F_CreateUserName": null, "F_ModifyDate": "2015-11-17 11:22:46", "F_ModifyUserId": "System", "F_ModifyUserName": "超级管理员" },
-                { "F_ModuleId": "81", "F_ParentId": "8", "F_EnCode": "OrganizeManage", "F_FullName": "考试时间", "F_Icon": "fa fa-sitemap", "F_UrlAddress": "timeDate/timeDateInfo", "F_Target": "iframe", "F_IsMenu": 1, "F_AllowExpand": 1, "F_IsPublic": 0, "F_AllowEdit": null, "F_AllowDelete": null, "F_SortCode": 1, "F_DeleteMark": 0, "F_EnabledMark": 1, "F_Description": null, "F_CreateDate": null, "F_CreateUserId": null, "F_CreateUserName": null, "F_ModifyDate": "2016-04-29 11:55:28", "F_ModifyUserId": "System", "F_ModifyUserName": "超级管理员" },
-                { "F_ModuleId": "82", "F_ParentId": "8", "F_EnCode": "OrganizeManage", "F_FullName": "自动排考", "F_Icon": "fa fa-sitemap", "F_UrlAddress": "examination/automatic", "F_Target": "iframe", "F_IsMenu": 1, "F_AllowExpand": 1, "F_IsPublic": 0, "F_AllowEdit": null, "F_AllowDelete": null, "F_SortCode": 1, "F_DeleteMark": 0, "F_EnabledMark": 1, "F_Description": null, "F_CreateDate": null, "F_CreateUserId": null, "F_CreateUserName": null, "F_ModifyDate": "2016-04-29 11:55:28", "F_ModifyUserId": "System", "F_ModifyUserName": "超级管理员" },
-                { "F_ModuleId": "82", "F_ParentId": "8", "F_EnCode": "OrganizeManage", "F_FullName": "手动排考", "F_Icon": "fa fa-sitemap", "F_UrlAddress": "examination/manual", "F_Target": "iframe", "F_IsMenu": 1, "F_AllowExpand": 1, "F_IsPublic": 0, "F_AllowEdit": null, "F_AllowDelete": null, "F_SortCode": 1, "F_DeleteMark": 0, "F_EnabledMark": 1, "F_Description": null, "F_CreateDate": null, "F_CreateUserId": null, "F_CreateUserName": null, "F_ModifyDate": "2016-04-29 11:55:28", "F_ModifyUserId": "System", "F_ModifyUserName": "超级管理员" },
+                {
+                    "F_ModuleId": "3",
+                    "F_ParentId": "0",
+                    "F_EnCode": "SysManage",
+                    "F_FullName": "课程管理",
+                    "F_Icon": "fa fa-desktop",
+                    "F_UrlAddress": "/default",
+                    "F_Target": "expand",
+                    "F_IsMenu": 0,
+                    "F_AllowExpand": 1,
+                    "F_IsPublic": 0,
+                    "F_AllowEdit": null,
+                    "F_AllowDelete": null,
+                    "F_SortCode": 1,
+                    "F_DeleteMark": 0,
+                    "F_EnabledMark": 1,
+                    "F_Description": null,
+                    "F_CreateDate": null,
+                    "F_CreateUserId": null,
+                    "F_CreateUserName": null,
+                    "F_ModifyDate": "2015-11-17 11:22:46",
+                    "F_ModifyUserId": "System",
+                    "F_ModifyUserName": "超级管理员"
+                },
+                {
+                    "F_ModuleId": "31",
+                    "F_ParentId": "3",
+                    "F_EnCode": "OrganizeManage",
+                    "F_FullName": "课程信息",
+                    "F_Icon": "fa fa-sitemap",
+                    "F_UrlAddress": "course/courseInfo",
+                    "F_Target": "iframe",
+                    "F_IsMenu": 1,
+                    "F_AllowExpand": 1,
+                    "F_IsPublic": 0,
+                    "F_AllowEdit": null,
+                    "F_AllowDelete": null,
+                    "F_SortCode": 1,
+                    "F_DeleteMark": 0,
+                    "F_EnabledMark": 1,
+                    "F_Description": null,
+                    "F_CreateDate": null,
+                    "F_CreateUserId": null,
+                    "F_CreateUserName": null,
+                    "F_ModifyDate": "2016-04-29 11:55:28",
+                    "F_ModifyUserId": "System",
+                    "F_ModifyUserName": "超级管理员"
+                },
 
-             ];
-            
+                {
+                    "F_ModuleId": "4",
+                    "F_ParentId": "0",
+                    "F_EnCode": "SysManage",
+                    "F_FullName": "教师管理",
+                    "F_Icon": "fa fa-desktop",
+                    "F_UrlAddress": "/default",
+                    "F_Target": "expand",
+                    "F_IsMenu": 0,
+                    "F_AllowExpand": 1,
+                    "F_IsPublic": 0,
+                    "F_AllowEdit": null,
+                    "F_AllowDelete": null,
+                    "F_SortCode": 1,
+                    "F_DeleteMark": 0,
+                    "F_EnabledMark": 1,
+                    "F_Description": null,
+                    "F_CreateDate": null,
+                    "F_CreateUserId": null,
+                    "F_CreateUserName": null,
+                    "F_ModifyDate": "2015-11-17 11:22:46",
+                    "F_ModifyUserId": "System",
+                    "F_ModifyUserName": "超级管理员"
+                },
+                {
+                    "F_ModuleId": "41",
+                    "F_ParentId": "4",
+                    "F_EnCode": "OrganizeManage",
+                    "F_FullName": "教师信息",
+                    "F_Icon": "fa fa-sitemap",
+                    "F_UrlAddress": "teacher/teacherInfo",
+                    "F_Target": "iframe",
+                    "F_IsMenu": 1,
+                    "F_AllowExpand": 1,
+                    "F_IsPublic": 0,
+                    "F_AllowEdit": null,
+                    "F_AllowDelete": null,
+                    "F_SortCode": 1,
+                    "F_DeleteMark": 0,
+                    "F_EnabledMark": 1,
+                    "F_Description": null,
+                    "F_CreateDate": null,
+                    "F_CreateUserId": null,
+                    "F_CreateUserName": null,
+                    "F_ModifyDate": "2016-04-29 11:55:28",
+                    "F_ModifyUserId": "System",
+                    "F_ModifyUserName": "超级管理员"
+                },
+
+                {
+                    "F_ModuleId": "5",
+                    "F_ParentId": "0",
+                    "F_EnCode": "SysManage",
+                    "F_FullName": "班级管理",
+                    "F_Icon": "fa fa-desktop",
+                    "F_UrlAddress": "/default",
+                    "F_Target": "expand",
+                    "F_IsMenu": 0,
+                    "F_AllowExpand": 1,
+                    "F_IsPublic": 0,
+                    "F_AllowEdit": null,
+                    "F_AllowDelete": null,
+                    "F_SortCode": 1,
+                    "F_DeleteMark": 0,
+                    "F_EnabledMark": 1,
+                    "F_Description": null,
+                    "F_CreateDate": null,
+                    "F_CreateUserId": null,
+                    "F_CreateUserName": null,
+                    "F_ModifyDate": "2015-11-17 11:22:46",
+                    "F_ModifyUserId": "System",
+                    "F_ModifyUserName": "超级管理员"
+                },
+                {
+                    "F_ModuleId": "51",
+                    "F_ParentId": "5",
+                    "F_EnCode": "OrganizeManage",
+                    "F_FullName": "班级信息",
+                    "F_Icon": "fa fa-sitemap",
+                    "F_UrlAddress": "classs/classsInfo",
+                    "F_Target": "iframe",
+                    "F_IsMenu": 1,
+                    "F_AllowExpand": 1,
+                    "F_IsPublic": 0,
+                    "F_AllowEdit": null,
+                    "F_AllowDelete": null,
+                    "F_SortCode": 1,
+                    "F_DeleteMark": 0,
+                    "F_EnabledMark": 1,
+                    "F_Description": null,
+                    "F_CreateDate": null,
+                    "F_CreateUserId": null,
+                    "F_CreateUserName": null,
+                    "F_ModifyDate": "2016-04-29 11:55:28",
+                    "F_ModifyUserId": "System",
+                    "F_ModifyUserName": "超级管理员"
+                },
+
+                {
+                    "F_ModuleId": "6",
+                    "F_ParentId": "0",
+                    "F_EnCode": "SysManage",
+                    "F_FullName": "学生管理",
+                    "F_Icon": "fa fa-desktop",
+                    "F_UrlAddress": "/default",
+                    "F_Target": "expand",
+                    "F_IsMenu": 0,
+                    "F_AllowExpand": 1,
+                    "F_IsPublic": 0,
+                    "F_AllowEdit": null,
+                    "F_AllowDelete": null,
+                    "F_SortCode": 1,
+                    "F_DeleteMark": 0,
+                    "F_EnabledMark": 1,
+                    "F_Description": null,
+                    "F_CreateDate": null,
+                    "F_CreateUserId": null,
+                    "F_CreateUserName": null,
+                    "F_ModifyDate": "2015-11-17 11:22:46",
+                    "F_ModifyUserId": "System",
+                    "F_ModifyUserName": "超级管理员"
+                },
+                {
+                    "F_ModuleId": "61",
+                    "F_ParentId": "6",
+                    "F_EnCode": "OrganizeManage",
+                    "F_FullName": "学生信息",
+                    "F_Icon": "fa fa-sitemap",
+                    "F_UrlAddress": "student/studentInfo",
+                    "F_Target": "iframe",
+                    "F_IsMenu": 1,
+                    "F_AllowExpand": 1,
+                    "F_IsPublic": 0,
+                    "F_AllowEdit": null,
+                    "F_AllowDelete": null,
+                    "F_SortCode": 1,
+                    "F_DeleteMark": 0,
+                    "F_EnabledMark": 1,
+                    "F_Description": null,
+                    "F_CreateDate": null,
+                    "F_CreateUserId": null,
+                    "F_CreateUserName": null,
+                    "F_ModifyDate": "2016-04-29 11:55:28",
+                    "F_ModifyUserId": "System",
+                    "F_ModifyUserName": "超级管理员"
+                },
+
+                {
+                    "F_ModuleId": "7",
+                    "F_ParentId": "0",
+                    "F_EnCode": "SysManage",
+                    "F_FullName": "教室管理",
+                    "F_Icon": "fa fa-desktop",
+                    "F_UrlAddress": "/default",
+                    "F_Target": "expand",
+                    "F_IsMenu": 0,
+                    "F_AllowExpand": 1,
+                    "F_IsPublic": 0,
+                    "F_AllowEdit": null,
+                    "F_AllowDelete": null,
+                    "F_SortCode": 1,
+                    "F_DeleteMark": 0,
+                    "F_EnabledMark": 1,
+                    "F_Description": null,
+                    "F_CreateDate": null,
+                    "F_CreateUserId": null,
+                    "F_CreateUserName": null,
+                    "F_ModifyDate": "2015-11-17 11:22:46",
+                    "F_ModifyUserId": "System",
+                    "F_ModifyUserName": "超级管理员"
+                },
+                {
+                    "F_ModuleId": "71",
+                    "F_ParentId": "7",
+                    "F_EnCode": "OrganizeManage",
+                    "F_FullName": "教室信息",
+                    "F_Icon": "fa fa-sitemap",
+                    "F_UrlAddress": "classroom/classroomInfo",
+                    "F_Target": "iframe",
+                    "F_IsMenu": 1,
+                    "F_AllowExpand": 1,
+                    "F_IsPublic": 0,
+                    "F_AllowEdit": null,
+                    "F_AllowDelete": null,
+                    "F_SortCode": 1,
+                    "F_DeleteMark": 0,
+                    "F_EnabledMark": 1,
+                    "F_Description": null,
+                    "F_CreateDate": null,
+                    "F_CreateUserId": null,
+                    "F_CreateUserName": null,
+                    "F_ModifyDate": "2016-04-29 11:55:28",
+                    "F_ModifyUserId": "System",
+                    "F_ModifyUserName": "超级管理员"
+                },
+
+                {
+                    "F_ModuleId": "8",
+                    "F_ParentId": "0",
+                    "F_EnCode": "SysManage",
+                    "F_FullName": "排考管理",
+                    "F_Icon": "fa fa-desktop",
+                    "F_UrlAddress": "/default",
+                    "F_Target": "expand",
+                    "F_IsMenu": 0,
+                    "F_AllowExpand": 1,
+                    "F_IsPublic": 0,
+                    "F_AllowEdit": null,
+                    "F_AllowDelete": null,
+                    "F_SortCode": 1,
+                    "F_DeleteMark": 0,
+                    "F_EnabledMark": 1,
+                    "F_Description": null,
+                    "F_CreateDate": null,
+                    "F_CreateUserId": null,
+                    "F_CreateUserName": null,
+                    "F_ModifyDate": "2015-11-17 11:22:46",
+                    "F_ModifyUserId": "System",
+                    "F_ModifyUserName": "超级管理员"
+                },
+                {
+                    "F_ModuleId": "81",
+                    "F_ParentId": "8",
+                    "F_EnCode": "OrganizeManage",
+                    "F_FullName": "考试时间",
+                    "F_Icon": "fa fa-sitemap",
+                    "F_UrlAddress": "timeDate/timeDateInfo",
+                    "F_Target": "iframe",
+                    "F_IsMenu": 1,
+                    "F_AllowExpand": 1,
+                    "F_IsPublic": 0,
+                    "F_AllowEdit": null,
+                    "F_AllowDelete": null,
+                    "F_SortCode": 1,
+                    "F_DeleteMark": 0,
+                    "F_EnabledMark": 1,
+                    "F_Description": null,
+                    "F_CreateDate": null,
+                    "F_CreateUserId": null,
+                    "F_CreateUserName": null,
+                    "F_ModifyDate": "2016-04-29 11:55:28",
+                    "F_ModifyUserId": "System",
+                    "F_ModifyUserName": "超级管理员"
+                },
+                {
+                    "F_ModuleId": "82",
+                    "F_ParentId": "8",
+                    "F_EnCode": "OrganizeManage",
+                    "F_FullName": "自动排考",
+                    "F_Icon": "fa fa-sitemap",
+                    "F_UrlAddress": "examination/automatic",
+                    "F_Target": "iframe",
+                    "F_IsMenu": 1,
+                    "F_AllowExpand": 1,
+                    "F_IsPublic": 0,
+                    "F_AllowEdit": null,
+                    "F_AllowDelete": null,
+                    "F_SortCode": 1,
+                    "F_DeleteMark": 0,
+                    "F_EnabledMark": 1,
+                    "F_Description": null,
+                    "F_CreateDate": null,
+                    "F_CreateUserId": null,
+                    "F_CreateUserName": null,
+                    "F_ModifyDate": "2016-04-29 11:55:28",
+                    "F_ModifyUserId": "System",
+                    "F_ModifyUserName": "超级管理员"
+                },
+                {
+                    "F_ModuleId": "82",
+                    "F_ParentId": "8",
+                    "F_EnCode": "OrganizeManage",
+                    "F_FullName": "手动排考",
+                    "F_Icon": "fa fa-sitemap",
+                    "F_UrlAddress": "examination/manual",
+                    "F_Target": "iframe",
+                    "F_IsMenu": 1,
+                    "F_AllowExpand": 1,
+                    "F_IsPublic": 0,
+                    "F_AllowEdit": null,
+                    "F_AllowDelete": null,
+                    "F_SortCode": 1,
+                    "F_DeleteMark": 0,
+                    "F_EnabledMark": 1,
+                    "F_Description": null,
+                    "F_CreateDate": null,
+                    "F_CreateUserId": null,
+                    "F_CreateUserName": null,
+                    "F_ModifyDate": "2016-04-29 11:55:28",
+                    "F_ModifyUserId": "System",
+                    "F_ModifyUserName": "超级管理员"
+                },
+
+            ];
+
             var _html = "";
             $.each(data, function (i) {
                 var row = data[i];
@@ -339,12 +661,16 @@
                     _html += '<a href="javascript:;">'
                     _html += '<i class="' + row.F_Icon + '"></i><span>' + row.F_FullName + '</span><i class="fa fa-angle-left pull-right"></i>'
                     _html += '</a>'
-                    var childNodes = $.learunindex.jsonWhere(data, function (v) { return v.F_ParentId == row.F_ModuleId });
+                    var childNodes = $.learunindex.jsonWhere(data, function (v) {
+                        return v.F_ParentId == row.F_ModuleId
+                    });
                     if (childNodes.length > 0) {
                         _html += '<ul class="treeview-menu">';
                         $.each(childNodes, function (i) {
                             var subrow = childNodes[i];
-                            var subchildNodes = $.learunindex.jsonWhere(data, function (v) { return v.F_ParentId == subrow.F_ModuleId });
+                            var subchildNodes = $.learunindex.jsonWhere(data, function (v) {
+                                return v.F_ParentId == subrow.F_ModuleId
+                            });
                             _html += '<li>';
                             if (subchildNodes.length > 0) {
                                 _html += '<a href="#"><i class="' + subrow.F_Icon + '"></i>' + subrow.F_FullName + '';
@@ -352,12 +678,13 @@
                                 _html += '<ul class="treeview-menu">';
                                 $.each(subchildNodes, function (i) {
                                     var subchildNodesrow = subchildNodes[i];
-                                    _html += '<li><a class="menuItem" data-id="' + subrow.F_ModuleId + '" href="' + subrow.F_UrlAddress + '"><i class="' + subchildNodesrow.F_Icon + '"></i>' + subchildNodesrow.F_FullName + '</a></li>';
+
+                                    _html += '<li><a class="menuItem" data-id="' + subrow.F_ModuleId + '" href="' + getBaseUrl() + subrow.F_UrlAddress + '"><i class="' + subchildNodesrow.F_Icon + '"></i>' + subchildNodesrow.F_FullName + '</a></li>';
                                 });
                                 _html += '</ul>';
 
                             } else {
-                                _html += '<a class="menuItem" data-id="' + subrow.F_ModuleId + '" href="' + subrow.F_UrlAddress + '"><i class="' + subrow.F_Icon + '"></i>' + subrow.F_FullName + '</a>';
+                                _html += '<a class="menuItem" data-id="' + subrow.F_ModuleId + '" href="' + getBaseUrl() + subrow.F_UrlAddress + '"><i class="' + subrow.F_Icon + '"></i>' + subrow.F_FullName + '</a>';
                             }
                             _html += '</li>';
                         });
@@ -373,16 +700,16 @@
                     e.slideUp(500, function () {
                         e.removeClass("menu-open")
                     }),
-                    e.parent("li").removeClass("active")
+                        e.parent("li").removeClass("active")
                 } else if (e.is(".treeview-menu") && !e.is(":visible")) {
                     var f = d.parents("ul").first(),
-                    g = f.find("ul:visible").slideUp(500);
+                        g = f.find("ul:visible").slideUp(500);
                     g.removeClass("menu-open");
                     var h = d.parent("li");
                     e.slideDown(500, function () {
                         e.addClass("menu-open"),
-                        f.find("li.active").removeClass("active"),
-                        h.addClass("active");
+                            f.find("li.active").removeClass("active"),
+                            h.addClass("active");
 
                         var _height1 = $(window).height() - $("#sidebar-menu >li.active").position().top - 41;
                         var _height2 = $("#sidebar-menu li > ul.menu-open").height() + 10
