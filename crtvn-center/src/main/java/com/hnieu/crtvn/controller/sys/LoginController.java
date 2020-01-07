@@ -68,6 +68,7 @@ public class LoginController {
     /**
      * 教务人员登录验证
      */
+    @ResponseBody
     @RequestMapping(value = "/academicianLogin")
     public String login(Academician academician, String code, Course course, final RedirectAttributes redirectAttributes) {
 
@@ -86,10 +87,10 @@ public class LoginController {
 
                     session.setAttribute("academician", academicianBean);
                     redirectAttributes.addFlashAttribute("adminName", academicianBean.getName());
-                    return "redirect:/index";
+                    return "sys/index";
                 }
                 redirectAttributes.addFlashAttribute("code_msg", "密码或账号错误！");
-                return "redirect/login";
+                return "redirect:/login";
 
             } else {
                 redirectAttributes.addFlashAttribute("code_msg", "验证码错误！");
@@ -111,12 +112,12 @@ public class LoginController {
         String code = CaptchaUtil.drawImg(output);
 
         // 将四位数字的验证码保存到Session中。
-		HttpSession session = req.getSession();
-		session.setAttribute(SESSION_SECURITY_CODE, code);
+        HttpSession session = req.getSession();
+        session.setAttribute(SESSION_SECURITY_CODE, code);
 
 
-		// TODO: 2020/1/5  以后存入redis，为数组结构，判断是否存在
-		//redisTemplate.boundValueOps("");
+        // TODO: 2020/1/5  以后存入redis，为数组结构，判断是否存在
+        //redisTemplate.boundValueOps("");
 
         try {
             // 将图像输出到Servlet输出流中

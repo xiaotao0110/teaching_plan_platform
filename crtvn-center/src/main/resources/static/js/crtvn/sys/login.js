@@ -59,10 +59,10 @@ $(function () {
                 url: getBaseUrl() + 'login/adminLogin',
                 data: $('#loginForm').serializeArray(),
                 type: 'post',
-                dataType: 'JSON',
+                dataType: "html",
                 headers: {"Authorization": "Bearer " + Cookies.get("token")},
                 success: function (data) {
-                    console.log(data)
+                    document.write(data);
                 },
                 error: function (xhr) {
                 }
@@ -72,10 +72,10 @@ $(function () {
                 url: getBaseUrl() + 'login/academicianLogin',
                 data: $('#loginForm').serializeArray(),
                 type: 'post',
-                dataType: 'JSON',
+                dataType: "html",
                 headers: {"Authorization": "Bearer " + Cookies.get("token")},
                 success: function (data) {
-                    console.log(data)
+                    window.location.href = getBaseUrl() + data + ".html";
                 },
                 error: function (xhr) {
                 }

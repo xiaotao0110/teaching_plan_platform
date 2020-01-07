@@ -63,36 +63,39 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      * formLogin()对应表单认证相关的配置
      * logout()对应了注销相关的配置
      * httpBasic()可以配置basic登录
+     *
      * @param http
      * @throws Exception
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        http.headers().frameOptions().disable();
+
         http
                 .authorizeRequests()
-                     //列出路径不需要权限
-                    .antMatchers("/resources/**", "/templates/**", "/static/**",
-                            "/css/**","/fonts/**","/i/**","/images/**","/js/**","/**/*.ico","/**/*.html").permitAll()
-                    //拥有ROLE_ADMIN或ROLE_SYSTEM角色
-                    //.antMatchers("/xxx/**").hasAuthority("admin")
-                    //拥有admin权限
-                    //.antMatchers("/xxx/**").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_SYSTEM')")
-                    //所有请求都需要通过认证
-                    .anyRequest().authenticated()
-                    .and()
+                //列出路径不需要权限
+                .antMatchers("/resources/**", "/templates/**", "/static/**",
+                        "/css/**", "/fonts/**", "/i/**", "/images/**", "/js/**", "/**/*.ico", "/**/*.html").permitAll()
+                //拥有ROLE_ADMIN或ROLE_SYSTEM角色
+                //.antMatchers("/xxx/**").hasAuthority("admin")
+                //拥有admin权限
+                //.antMatchers("/xxx/**").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_SYSTEM')")
+                //所有请求都需要通过认证
+                .anyRequest().authenticated()
+                .and()
                 .formLogin()
-                    //需要username和password
-                    //.usernameParameter("username")
-                    //.passwordParameter("password")
-                    .failureForwardUrl("/login?error")
-                    .loginPage("/login")
-                    .permitAll()
-                    .and()
+                //需要username和password
+                //.usernameParameter("username")
+                //.passwordParameter("password")
+                .failureForwardUrl("/login?error")
+                .loginPage("/login")
+                .permitAll()
+                .and()
                 .logout()
-                    .logoutUrl("/logout")
-                    .logoutSuccessUrl("/index")
-                    .permitAll()
-                    .and()
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/index")
+                .permitAll()
+                .and()
                 .httpBasic()
                 .and()
                 .csrf().disable(); //关跨域保护

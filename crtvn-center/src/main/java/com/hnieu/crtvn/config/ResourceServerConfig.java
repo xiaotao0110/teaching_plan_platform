@@ -82,6 +82,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
         //所有请求必须认证通过
+        http.headers().frameOptions().disable();
+
         http.authorizeRequests()
                 //下边的路径放行
                 .antMatchers("/login/**", "/collegeInfo/**","/applyToken/**",

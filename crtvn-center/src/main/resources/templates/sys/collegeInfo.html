@@ -37,6 +37,9 @@
 		var bodyWidth = $(window).width();
 		$("#professionDataGrid").datagrid({
 			url:"profession/professionDataGrid",
+			headers: {
+				Authorization: "Bearer " + Cookies.get("token")
+			},
 	        title: "专业信息列表",
 	        width: bodyWidth - 30,
 	        height: bodyHeight-190,
@@ -108,6 +111,7 @@
 
 </body>
 <script type="text/javascript" src="/js/crtvn/common/config.js"></script>
+<script type="text/javascript" src="/js/crtvn/common/js-cookie.js"></script>
 <script>
 	function getBaseUrl(){
 		return base_url;
