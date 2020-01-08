@@ -1,6 +1,6 @@
 spring:
   application:
-    name: api-gateway
+    name: API-GATEWAY
 server:
   port: 1005
 
@@ -11,6 +11,8 @@ eureka:
       enabled: true
     serviceUrl:
       defaultZone:  http://127.0.0.1:1000/eureka/
+      register-with-eureka: true
+      fetch-registry: true
   instance:
     prefer-ip-address: true
     instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${spring.application.instance_id:${server.port}}

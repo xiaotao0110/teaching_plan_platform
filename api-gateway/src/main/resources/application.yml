@@ -29,12 +29,41 @@ spring:
 #        minIdle: 1
 #        maxWait: -1 #连接池最大等行时间 -1没有限制
 zuul:
+  host:
+    connect-timeout-millis: 15000 #HTTP连接超时要比Hystrix的大
+    socket-timeout-millis: 60000   #socket超时
   routes:
-    crtvn-center:
-      path: /crtvn/**
+    CRTVN-CENTER:
+      path: /**
       serviceId:  CRTVN-CENTER #微服务名称，网关会从eureka中获取该服务名称下的服务实例的地址
-      # 例子：将请求转发到http://localhost:31200/course
+      # 例子：将请求转发到http://localhost:1003/course
       #url: http://www.baidu.com #也可指定url，此url也可以是外网地址\
       strip-prefix: false #true：代理转发时去掉前缀，false:代理转发时不去掉前缀
       sensitiveHeaders:  #默认zuul会屏蔽cookie，cookie不会传到下游服务，这里设置为空则取消默认的黑名单，如果设置了具体的头信息则不会传到下游服务
       #   ignoredHeaders: 默认为空表示不过虑任何头
+
+
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 90000
+
+#设置最大容错超时时间
+hystrix:
+  threadpool:
+    default:
+      coreSize: 100
+      maximumSize: 5000
+      allowMaximumSizeToDivergeFromCoreSize: true
+      maxQueueSize: -1
+  command:
+    default:
+      circuitBreaker:
+        forceOpen: false
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 900000
+
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 10000

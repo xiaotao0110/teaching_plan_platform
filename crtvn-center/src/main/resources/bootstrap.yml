@@ -1,6 +1,6 @@
 spring:
   application:
-    name: crtvn-center
+    name: CRTVN-CENTER
 server:
   port: 1003
 

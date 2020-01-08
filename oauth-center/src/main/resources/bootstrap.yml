@@ -1,6 +1,6 @@
 spring:
   application:
-    name: oauth-center
+    name: OAUTH-CENTER
 server:
   port: 1001
 
