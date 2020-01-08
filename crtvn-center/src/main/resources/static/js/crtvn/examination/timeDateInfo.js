@@ -7,6 +7,7 @@ $(function () {
     var bodyWidth = $(window).width();
     $("#timeDataGrid").datagrid({
         url: getBaseUrl() + "timeDate/timeDataGrid",
+        headers: {"Authorization": "Bearer " + Cookies.get("token")},
         title: "课程信息列表",
         width: bodyWidth - 20,
         height: bodyHeight - 180,
@@ -49,6 +50,7 @@ $(function () {
                     $.ajax({
                         type: "POST",
                         url: getBaseUrl() + "timeDate/addTime",
+                        headers: {"Authorization": "Bearer " + Cookies.get("token")},
                         data: {
                             'stime': $("#startTime").combobox('getValue'),
                             'etime': $("#endTime").combobox('getValue')
@@ -99,6 +101,7 @@ $(function () {
                     $.ajax({
                         type: "POST",
                         url: getBaseUrl() + "timeDate/delTime",
+                        headers: {"Authorization": "Bearer " + Cookies.get("token")},
                         data: {"id": id},
                         success: function (result) {
                             if (true) {

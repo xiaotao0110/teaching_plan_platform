@@ -31,7 +31,7 @@
                             <span class="hidden-xs" th th:text="${adminName}"></span>
                         </a>
                         <ul class="dropdown-menu pull-right">
-                            <li><a href="login"><i class="ace-icon fa fa-power-off"></i>安全退出</a></li>
+                            <li><a id="loginOut" href=""><i class="ace-icon fa fa-power-off"></i>安全退出</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -87,7 +87,9 @@
 <script src="/js/crtvn/sys/index.js"></script>
 <script type="text/javascript">
     $(function () {
+        $('#loginOut').attr("href", getBaseUrl() + "login.html");
         $('#college').attr("src", getBaseUrl() + "collegeInfo");
+
         $('#collegeInfo').click(function () {
             //if($("#collegeInfo").siblings().length==0){
             window.location.reload();

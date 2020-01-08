@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * 解决跨域问题
+ */
 @Component
 public class CORSFilter implements Filter {
 
@@ -24,9 +27,11 @@ public class CORSFilter implements Filter {
         }
         chain.doFilter(request, response);
     }
+
     @Override
     public void destroy() {
     }
+
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
     }

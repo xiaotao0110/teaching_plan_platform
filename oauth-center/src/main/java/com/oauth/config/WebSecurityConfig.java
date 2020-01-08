@@ -34,7 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     /**
      * 用户身份验证
-     * 实现UserDetailsService此类的loadUserByUsername方法
+     * 实现UserDetailsService类的loadUserByUsername方法
      */
     @Bean
     public UserDetailsService userDetailsService() { //主要是配置这个Bean，用于授权服务器配置中注入

@@ -120,6 +120,9 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         };
     }
 
+    /**
+     * 运行get和post方式请求token,默认只支持post
+     */
     @PostConstruct
     public void reconfigure() {
         Set<HttpMethod> allowedMethods =

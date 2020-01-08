@@ -82,6 +82,9 @@ public class LoginController {
             if (code.toUpperCase().equals(imageCode.toUpperCase())) {
                 Academician academicianBean = academicianService.findAcademicianByName(academician);
                 if (academicianBean != null) {
+
+                    // TODO: 2020/1/8  以后存入token或者redis ，废弃session方式
+
                     //记录时间
                     session.setAttribute("course", course);
 

@@ -28,6 +28,7 @@ $(function () {
     var bodyWidth = $(window).width();
     $("#classroomDataGrid").datagrid({
         url: getBaseUrl() + $('#classroomForm').attr('action'),
+        headers: {"Authorization": "Bearer " + Cookies.get("token")},
         title: "教室信息列表",
         width: bodyWidth - 20,
         height: bodyHeight - 180,
@@ -67,6 +68,7 @@ $(function () {
     // 院系信息下拉框
     $('#college').combobox({
         url: getBaseUrl() + "college/collegeSelect",
+        headers: {"Authorization": "Bearer " + Cookies.get("token")},
         valueField: 'id',
         textField: 'text',
         width: 165,
@@ -85,6 +87,7 @@ $(function () {
         //楼栋信息下拉框
         $('#building').combobox({
             url: getBaseUrl() + "classroom/BuildingSelect?collegeId=" + collegeId,
+            headers: {"Authorization": "Bearer " + Cookies.get("token")},
             valueField: 'id',
             textField: 'text',
             width: 165,

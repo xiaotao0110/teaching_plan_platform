@@ -85,8 +85,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
         http.headers().frameOptions().disable();
 
         http.authorizeRequests()
-                //下边的路径放行
-                .antMatchers("/login/**", "/**/*Info", "/**/*Details", "/applyToken/**",
+                //下边的路径放行 ，不需要token
+                .antMatchers("/login/**", "/**/*Info", "/**/*Details", "/examination/**", "/applyToken/**",
                         "/resources/**", "/templates/**", "/static/**",
                         "/css/**", "/fonts/**", "/i/**", "/images/**", "/js/**",
                         "/**/*.ico", "/**/*.html").permitAll()

@@ -42,6 +42,7 @@ $(function () {
     var bodyWidth = $(window).width();
     $("#teacherDataGrid").datagrid({
         url: getBaseUrl() + $('#teacherForm').attr('action'),
+        headers: {"Authorization": "Bearer " + Cookies.get("token")},
         title: "教师信息列表",
         width: bodyWidth - 20,
         height: bodyHeight - 180,
@@ -87,6 +88,7 @@ $(function () {
     // 院系信息下拉框
     $('#college').combobox({
         url: getBaseUrl() + "college/collegeSelect",
+        headers: {"Authorization": "Bearer " + Cookies.get("token")},
         valueField: 'id',
         textField: 'text',
         width: 165,
@@ -104,6 +106,7 @@ $(function () {
         // 专业信息下拉框
         $('#profession').combobox({
             url: getBaseUrl() + "profession/professionSelect?collegeId=" + collegeId,
+            headers: {"Authorization": "Bearer " + Cookies.get("token")},
             valueField: 'id',
             textField: 'text',
             width: 165,
@@ -131,6 +134,7 @@ $(function () {
             {
                 url: getBaseUrl() + "teacher/teacherSelect?collegeId=" + collegeId
                     + "&professionId=" + professionId,
+                headers: {"Authorization": "Bearer " + Cookies.get("token")},
                 valueField: 'id',
                 textField: 'text',
                 width: 165,
@@ -147,6 +151,7 @@ $(function () {
         //课程代号下拉框
         $('#courseCode').combobox({
             url: getBaseUrl() + "course/courseSelect?professionId=" + professionId,
+            headers: {"Authorization": "Bearer " + Cookies.get("token")},
             valueField: 'id',
             textField: 'text',
             width: 165,

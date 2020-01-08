@@ -29,6 +29,7 @@ $(function () {
     $("#courseDataGrid").datagrid({
         url: getBaseUrl() + $('#courseForm').attr('action'),
         headers: {"Authorization": "Bearer " + Cookies.get("token")},
+        headers: {"Authorization": "Bearer " + Cookies.get("token")},
         title: "课程信息列表",
         width: bodyWidth - 20,
         height: bodyHeight - 180,
@@ -72,6 +73,7 @@ $(function () {
     $('#profession').combobox({
         url: getBaseUrl() + "profession/professionSelect",
         headers: {"Authorization": "Bearer " + Cookies.get("token")},
+        headers: {"Authorization": "Bearer " + Cookies.get("token")},
         valueField: 'id',
         textField: 'text',
         width: 150,
@@ -93,6 +95,7 @@ $(function () {
         //课程代号下拉框
         $('#courseCode').combobox({
             url: getBaseUrl() + "course/courseSelect?professionId=" + $('#profession').combobox('getValue'),
+            headers: {"Authorization": "Bearer " + Cookies.get("token")},
             headers: {"Authorization": "Bearer " + Cookies.get("token")},
             valueField: 'id',
             textField: 'text',

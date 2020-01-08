@@ -3,6 +3,7 @@ $(function () {
     //考试科目下拉框
     $('#testSubjects').combobox({
         url: getBaseUrl() + "student/studentExamCourseYesSelect?mark=2&studentId=" + $('#studentId').val(),
+        headers: {"Authorization": "Bearer " + Cookies.get("token")},
         valueField: 'id',
         textField: 'text',
         width: 165,
@@ -19,6 +20,7 @@ $(function () {
     //非考试科目下拉框
     $('#noTestSubjects').combobox({
         url: getBaseUrl() + "student/studentExamCourseNoSelect?mark=2&studentId=" + $('#studentId').val(),
+        headers: {"Authorization": "Bearer " + Cookies.get("token")},
         valueField: 'id',
         textField: 'text',
         width: 165,
@@ -40,6 +42,7 @@ $(function () {
         $.ajax({
             type: "post",
             url: getBaseUrl() + "student/studentReason",
+            headers: {"Authorization": "Bearer " + Cookies.get("token")},
             data: {
                 "studentId": $('#studentId').val(),
                 "courseId": courseId
@@ -115,6 +118,7 @@ $(function () {
                 url: getBaseUrl() + "student/studentExamCourseStatus",
                 data: param,
                 dataType: "json",
+                headers: {"Authorization": "Bearer " + Cookies.get("token")},
                 success: function (data) {
                     var msg = "失败";
                     if (data.msg == "ok") {

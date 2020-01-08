@@ -4,6 +4,7 @@ $(function(){
 	var bodyWidth = $(window).width();
 	$("#examDataGrid").datagrid({
 		url:getBaseUrl() +$('#examForm').attr('action'),
+        headers: {"Authorization": "Bearer " + Cookies.get("token")},
         title: "考试信息列表",
         width: bodyWidth - 20,  
         height: bodyHeight-180,       

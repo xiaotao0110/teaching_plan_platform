@@ -6,6 +6,7 @@ $(function () {
                 $.ajax({
                     type: "post",
                     url: getBaseUrl() + "examination/automaticInfo",
+                    headers: {"Authorization": "Bearer " + Cookies.get("token")},
                     data: {"mark": 1, "renew": 1},
                     dataType: "json",
                     success: function (data) {
@@ -29,6 +30,7 @@ $(function () {
                 $.ajax({
                     type: "post",
                     url: getBaseUrl() + "examination/automaticInfo",
+                    headers: {"Authorization": "Bearer " + Cookies.get("token")},
                     data: {"mark": 1, "renew": 2},
                     dataType: "json",
                     success: function (data) {
@@ -52,6 +54,7 @@ $(function () {
                 $.ajax({
                     type: "post",
                     url: getBaseUrl() + "examination/exam",
+                    headers: {"Authorization": "Bearer " + Cookies.get("token")},
                     data: {"mark": 1},
                     dataType: "json",
                     success: function (data) {
@@ -105,6 +108,7 @@ $(function () {
     var bodyWidth = $(window).width();
     $("#examinationsDataGrid").datagrid({
         url: getBaseUrl() + "examination/examinationDataGrid",
+        headers: {"Authorization": "Bearer " + Cookies.get("token")},
         title: "考场信息列表",
         width: bodyWidth - 20,
         height: bodyHeight - 180,
@@ -187,6 +191,7 @@ $(function () {
     // 专业信息下拉框
     $('#profession').combobox({
         url: getBaseUrl() + "profession/professionSelect",
+        headers: {"Authorization": "Bearer " + Cookies.get("token")},
         valueField: 'id',
         textField: 'text',
         width: 165,
@@ -214,6 +219,7 @@ $(function () {
             {
                 url: getBaseUrl() + "course/courseSelect?professionId="
                     + $('#profession').combobox('getValue') + "&courseManner=" + 1,
+                headers: {"Authorization": "Bearer " + Cookies.get("token")},
                 valueField: 'id',
                 textField: 'text',
                 width: 165,

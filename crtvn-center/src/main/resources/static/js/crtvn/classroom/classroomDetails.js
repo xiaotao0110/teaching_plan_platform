@@ -30,6 +30,7 @@ $(function () {
         $.ajax({
             type: "post",
             url: getBaseUrl() + "classroom/classroomStatus",
+            headers: {"Authorization": "Bearer " + Cookies.get("token")},
             data: {
                 "mark": $('#status').combobox("getValue"),
                 "classroomId": $('#CSID').val(), "number": $('#number').val()

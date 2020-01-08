@@ -24,7 +24,7 @@ $(function () {
     $('#course').combobox({
         url: base_url + "course/courseSelect2?collegeId=" + $('#CID').val() + "&professionId="
             + $('#PID').val() + "&teacherId=" + $('#TID').val(),
-
+        headers: {"Authorization": "Bearer " + Cookies.get("token")},
         valueField: 'id',
         textField: 'text',
         width: 150,
@@ -48,6 +48,7 @@ $(function () {
         $.ajax({
             type: "post",
             url: base_url + "teacher/teacherStatus",
+            headers: {"Authorization": "Bearer " + Cookies.get("token")},
             data: {
                 "mark": $('#status').combobox("getValue"),
                 "teacherId": $('#TID').val()

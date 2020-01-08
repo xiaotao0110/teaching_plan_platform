@@ -11,6 +11,7 @@ $(function () {
                 $.ajax({
                     type: "post",
                     url: getBaseUrl() + "examination/delAutomatic",
+                    headers: {"Authorization": "Bearer " + Cookies.get("token")},
                     dataType: "json",
                     success: function (data) {
                         $.messager.show({
@@ -35,6 +36,7 @@ $(function () {
                 $.ajax({
                     type: "post",
                     url: getBaseUrl() + "examination/delexam",
+                    headers: {"Authorization": "Bearer " + Cookies.get("token")},
                     dataType: "json",
                     success: function (data) {
                         $.messager.show({
@@ -53,6 +55,7 @@ $(function () {
     //院系信息下拉框
     $('#college').combobox({
         url: getBaseUrl() + "college/collegeSelect",
+        headers: {"Authorization": "Bearer " + Cookies.get("token")},
         valueField: 'id',
         textField: 'text',
         width: 165,
@@ -79,6 +82,7 @@ $(function () {
     function profession() {
         $('#aprofession').combobox({
             url: getBaseUrl() + "profession/professionSelect?collegeId=" + $('#collegeId').val(),
+            headers: {"Authorization": "Bearer " + Cookies.get("token")},
             valueField: 'id',
             textField: 'text',
             width: 165,
@@ -104,6 +108,7 @@ $(function () {
                 url: getBaseUrl() + "course/courseSelect?professionId="
                     + $('#aprofession').combobox('getValue') + "&courseManner=" + 1
                     + "&courseMark=" + 2,
+                headers: {"Authorization": "Bearer " + Cookies.get("token")},
                 valueField: 'id',
                 textField: 'text',
                 width: 165,
@@ -126,6 +131,7 @@ $(function () {
                         $.ajax({
                             type: "post",
                             url: getBaseUrl() + "student/studentCountbyCourse",
+                            headers: {"Authorization": "Bearer " + Cookies.get("token")},
                             data: {"courseId": id},
                             dataType: "json",
                             success: function (data) {
@@ -148,6 +154,7 @@ $(function () {
         //教室
         $('#aclassroom').combogrid({
             url: getBaseUrl() + 'classroom/classroomDataGrid',
+            headers: {"Authorization": "Bearer " + Cookies.get("token")},
             panelWidth: 700,
             panelHeight: 370,
             idField: 'classroomId',
@@ -223,6 +230,7 @@ $(function () {
         //教师
         $('#ateacherCode').combogrid({
             url: getBaseUrl() + 'teacher/teacherDataGrid',
+            headers: {"Authorization": "Bearer " + Cookies.get("token")},
             panelWidth: 700,
             panelHeight: 370,
             idField: 'teacherId',
@@ -270,6 +278,7 @@ $(function () {
     $('#aetime').combobox(
         {
             url: getBaseUrl() + "timeDate/timeSelect?mark=" + 2,
+            headers: {"Authorization": "Bearer " + Cookies.get("token")},
             valueField: 'id',
             textField: 'text',
             width: 300,
@@ -290,6 +299,7 @@ $(function () {
     // 专业信息下拉框
     $('#qprofession').combobox({
         url: getBaseUrl() + "profession/professionSelect",
+        headers: {"Authorization": "Bearer " + Cookies.get("token")},
         valueField: 'id',
         textField: 'text',
         width: 165,
@@ -317,6 +327,7 @@ $(function () {
             {
                 url: getBaseUrl() + "course/courseSelect?professionId="
                     + $('#qprofession').combobox('getValue') + "&courseManner=" + 1,
+                headers: {"Authorization": "Bearer " + Cookies.get("token")},
                 valueField: 'id',
                 textField: 'text',
                 width: 165,
@@ -351,6 +362,7 @@ $(function () {
         $('#' + id + '').combobox(
             {
                 url: urlStr,
+                headers: {"Authorization": "Bearer " + Cookies.get("token")},
                 valueField: 'id',
                 textField: 'text',
                 width: 165,
@@ -405,6 +417,7 @@ $(function () {
     var bodyWidth = $(window).width();
     $("#manualDataGrid").datagrid({
         url: getBaseUrl() + "examination/examinationDataGrid",
+        headers: {"Authorization": "Bearer " + Cookies.get("token")},
         title: "考场信息列表",
         width: bodyWidth - 20,
         height: bodyHeight - 320,
@@ -495,6 +508,7 @@ $(function () {
                 $.ajax({
                     type: "post",
                     url: getBaseUrl() + "examination/exam",
+                    headers: {"Authorization": "Bearer " + Cookies.get("token")},
                     data: {"mark": 2},
                     dataType: "json",
                     success: function (data) {
@@ -615,6 +629,7 @@ $(function () {
             $.ajax({
                 type: "post",
                 url: getBaseUrl() + "examination/manualInfo",
+                headers: {"Authorization": "Bearer " + Cookies.get("token")},
                 data: params,
                 dataType: "json",
                 success: function (data) {
@@ -645,6 +660,7 @@ $(function () {
         $('#manualAfterDL').dialog('open');
         $("#courseDataGrid").datagrid({
             url: getBaseUrl() + 'course/courseDataGrid',
+            headers: {"Authorization": "Bearer " + Cookies.get("token")},
             title: "课程信息列表",
             width: bodyWidth - 600,
             height: bodyHeight - 250,
@@ -669,6 +685,7 @@ $(function () {
                         $.ajax({
                             type: "post",
                             url: getBaseUrl() + "course/delCourse",
+                            headers: {"Authorization": "Bearer " + Cookies.get("token")},
                             dataType: "json",
                             data: {"courseId": rowData.courseId, "courseMark": 2},
                             success: function (data) {

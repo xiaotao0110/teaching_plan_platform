@@ -31,6 +31,7 @@
         .datagrid(
             {
                 url: getBaseUrl() + $('#adminForm').attr('action'),
+                headers: {"Authorization": "Bearer " + Cookies.get("token")},
                 title: "教务人员信息列表",
                 width: bodyWidth - 20,
                 height: bodyHeight - 180,
@@ -87,6 +88,7 @@
     $.ajax({
         type: "POST",
         url: "college/collegeSelect",
+        headers: {"Authorization": "Bearer " + Cookies.get("token")},
         success: function (result) {
 
         }
