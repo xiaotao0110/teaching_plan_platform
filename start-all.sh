@@ -1,22 +1,32 @@
 #!/bin/sh
 
 # 用来启动所有的项目
+
+#复制项目到共享文件夹
+cp -r $WORKSPACE /usr/local/tomcat/webapps
+
+#退出tomcat容器
+exit
+
+#进入项目根目录
+cd /usr/local/webapps/teaching_plan_platform
+
 echo "------------------开始构建镜像------------------"
 
 echo "------------------构建register镜像"
-cd  $WORKSPACE/register-center
+cd  register-center
 mvn clean install  package docker:build -Dmaven.test.skip=true
 
 echo "------------------构建api-gateway镜像"
-cd   $WORKSPACE/api-gateway
+cd   api-gateway
 mvn clean install  package docker:build -Dmaven.test.skip=true
 
 echo "------------------构建oauth镜像"
-cd   $WORKSPACE/oauth-center
+cd   oauth-center
 mvn clean install  package docker:build -Dmaven.test.skip=true
 
 echo "------------------构建crtvn镜像"
-cd   $WORKSPACE/crtvn-center
+cd   crtvn-center
 mvn clean install  package docker:build -Dmaven.test.skip=true
 
 echo "------------------构建镜像完成------------------"
