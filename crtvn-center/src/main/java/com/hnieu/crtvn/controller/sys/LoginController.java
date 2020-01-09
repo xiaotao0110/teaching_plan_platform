@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 @Controller
 @RequestMapping(value = "/login")
@@ -83,12 +84,15 @@ public class LoginController {
                 Academician academicianBean = academicianService.findAcademicianByName(academician);
                 if (academicianBean != null) {
 
-                    // TODO: 2020/1/8  以后存入token或者redis ，废弃session方式
-
                     //记录时间
                     session.setAttribute("course", course);
-
                     session.setAttribute("academician", academicianBean);
+
+                    // TODO: 2020/1/8  以后存入token或者redis ，废弃session方式  ,替换调用session的地方
+                    redisTemplate.boundValueOps("crtvn:course").set(course, 10, TimeUnit.MINUTES);
+                    redisTemplate.boundValueOps("crtvn:academician").set(academicianBean, 10, TimeUnit.MINUTES);
+
+
                     redirectAttributes.addFlashAttribute("adminName", academicianBean.getName());
                     return "sys/index";
                 }

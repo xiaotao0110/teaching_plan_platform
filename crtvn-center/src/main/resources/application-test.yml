@@ -8,6 +8,11 @@ server:
 spring:
   application:
     name: CRTVN-CENTER
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+  # password: 123456  # Redis服务器连接密码（默认为空）
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/crtvn?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT%2B8
     username: root
@@ -28,14 +33,14 @@ spring:
       allow-bean-definition-overriding: true
   mvc:
     view:
-      prefix: classpath:/templates/
+      prefix: classpath:/META-INF/resources/**,classpath:/resources/**,classpath:/static/**,classpath:/public/**,classpath:/templates/**
       suffix: .html
       static-path-pattern: /**
   thymeleaf:
     cache: false
     mode: LEGACYHTML5
     resources:
-      static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,classpath:/templates/
+      static-locations: classpath:/META-INF/resources/**,classpath:/resources/**,classpath:/static/**,classpath:/public/**,classpath:/templates/**
   jpa:
     database: MYSQL
     show-sql: true
@@ -71,3 +76,8 @@ eureka:
 ribbon:
   eureka:
     enabled: true
+
+
+
+
+
