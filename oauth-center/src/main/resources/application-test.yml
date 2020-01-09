@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: OAUTH-CENTER
+server:
+  port: 1001
+
+#eureka client配置
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone:  http://127.0.0.1:1000/eureka
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${spring.application.instance_id:${server.port}}
+    #instance-id: ${spring.application.name}:${docker.ipAddress}:${spring.application.instance_id:${server.port}}
+    lease-renewal-interval-in-seconds: 2  #每隔几秒告诉eureka服务器我还存活，用于心跳检测
+    lease-expiration-duration-in-seconds: 10 #如果心跳检测一直没有发送，10秒后会从eureka服务器中将此服务剔除
+
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/crtvn?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: root
+    driver-class-name:  com.mysql.jdbc.Driver
+    dbcp2:
+      #连接池配置(通常来说，只需要修改initialSize、minIdle、maxActive
+      initial-size: 1
+      min-idle: 1
+      max-idle: 20
+      # 配置获取连接等待超时的时间
+      max-wait-millis: 60000
+      #配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      time-between-eviction-runs-millis: 60000
+      #配置一个连接在池中最小生存的时间，单位是毫秒
+      min-evictable-idle-time-millis: 300000
+  main:
+    allow-bean-definition-overriding: true
+
+

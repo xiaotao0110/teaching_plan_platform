@@ -1,0 +1,90 @@
+spring:
+  application:
+    name: API-GATEWAY
+server:
+  port: 1005
+
+#eureka client配置
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone:  http://192.168.254.150:1000/eureka/
+      register-with-eureka: true
+      fetch-registry: true
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${spring.application.instance_id:${server.port}}
+    #instance-id: ${spring.application.name}:${docker.ipAddress}:${spring.application.instance_id:${server.port}}
+    lease-renewal-interval-in-seconds: 2  #每隔几秒告诉eureka服务器我还存活，用于心跳检测
+    lease-expiration-duration-in-seconds: 10 #如果心跳检测一直没有发送，10秒后会从eureka服务器中将此服务剔除
+
+  datasource:
+    url: jdbc:mysql://192.168.254.150:33306/crtvn?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: root
+    driver-class-name:  com.mysql.jdbc.Driver
+    dbcp2:
+      #连接池配置(通常来说，只需要修改initialSize、minIdle、maxActive
+      initial-size: 1
+      min-idle: 1
+      max-idle: 20
+      # 配置获取连接等待超时的时间
+      max-wait-millis: 60000
+      #配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      time-between-eviction-runs-millis: 60000
+      #配置一个连接在池中最小生存的时间，单位是毫秒
+      min-evictable-idle-time-millis: 300000
+  main:
+    allow-bean-definition-overriding: true
+
+#  redis:
+#    host: ${REDIS_HOST:127.0.0.1}
+#    port: ${REDIS_PORT:6379}
+#    timeout: 5000 #连接超时 毫秒
+#    jedis:
+#      pool:
+#        maxActive: 3
+#        maxIdle: 3
+#        minIdle: 1
+#        maxWait: -1 #连接池最大等行时间 -1没有限制
+zuul:
+  host:
+    connect-timeout-millis: 15000 #HTTP连接超时要比Hystrix的大
+    socket-timeout-millis: 60000   #socket超时
+  routes:
+    CRTVN-CENTER:
+      path: /**
+      serviceId:  CRTVN-CENTER #微服务名称，网关会从eureka中获取该服务名称下的服务实例的地址
+      # 例子：将请求转发到http://localhost:1003/course
+      #url: http://www.baidu.com #也可指定url，此url也可以是外网地址\
+      strip-prefix: false #true：代理转发时去掉前缀，false:代理转发时不去掉前缀
+      sensitiveHeaders:  #默认zuul会屏蔽cookie，cookie不会传到下游服务，这里设置为空则取消默认的黑名单，如果设置了具体的头信息则不会传到下游服务
+      #   ignoredHeaders: 默认为空表示不过虑任何头
+
+
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 90000
+
+#设置最大容错超时时间
+hystrix:
+  threadpool:
+    default:
+      coreSize: 100
+      maximumSize: 5000
+      allowMaximumSizeToDivergeFromCoreSize: true
+      maxQueueSize: -1
+  command:
+    default:
+      circuitBreaker:
+        forceOpen: false
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 900000
+
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 10000

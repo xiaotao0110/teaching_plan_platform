@@ -1,7 +1,5 @@
 spring:
   application:
     name: REGISTER-CENTER
-  profiles:
-    active: dev
 server:
   port: 1000

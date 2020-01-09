@@ -24,8 +24,10 @@
 
     <properties>
 
-        <!--        <docker.host>http://59.110.164.254:5555</docker.host>-->
-        <!--        <docker.image.prefix>owenwangwen</docker.image.prefix>-->
+
+        <docker.host>http://192.168.254.150:2375</docker.host>
+        <docker.image.prefix>teaching</docker.image.prefix>
+
         <spring-boot.version>2.1.3.RELEASE</spring-boot.version>
         <java.version>1.8</java.version>
         <lombok.version>1.18.4</lombok.version>
@@ -141,6 +143,15 @@
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
                 </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <configuration>
+                        <skipTests>true</skipTests>
+                    </configuration>
+                </plugin>
+
                 <plugin>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <configuration>
