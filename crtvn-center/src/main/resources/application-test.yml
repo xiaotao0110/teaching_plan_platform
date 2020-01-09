@@ -1,23 +1,13 @@
-spring:
-  application:
-    name: CRTVN-CENTER
+debug: true
+
 server:
   port: 1003
   tomcat:
-    uri-encoding:UTF-8:
+    uri-encoding: UTF-8
 
-#eureka client配置
-eureka:
-  client:
-    serviceUrl:
-      defaultZone:  http://127.0.0.1:1000/eureka
-  instance:
-    prefer-ip-address: true
-    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${spring.application.instance_id:${server.port}}
-    #instance-id: ${spring.application.name}:${docker.ipAddress}:${spring.application.instance_id:${server.port}}
-    lease-renewal-interval-in-seconds: 2  #每隔几秒告诉eureka服务器我还存活，用于心跳检测
-    lease-expiration-duration-in-seconds: 10 #如果心跳检测一直没有发送，10秒后会从eureka服务器中将此服务剔除
-
+spring:
+  application:
+    name: CRTVN-CENTER
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/crtvn?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT%2B8
     username: root
@@ -34,9 +24,8 @@ eureka:
       time-between-eviction-runs-millis: 60000
       #配置一个连接在池中最小生存的时间，单位是毫秒
       min-evictable-idle-time-millis: 300000
-  main:
-    allow-bean-definition-overriding: true
-
+    main:
+      allow-bean-definition-overriding: true
   mvc:
     view:
       prefix: classpath:/templates/
@@ -45,9 +34,8 @@ eureka:
   thymeleaf:
     cache: false
     mode: LEGACYHTML5
-  resources:
-    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,classpath:/templates/
-
+    resources:
+      static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,classpath:/templates/
   jpa:
     database: MYSQL
     show-sql: true
@@ -59,17 +47,26 @@ eureka:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5Dialect
         current_session_context_class: org.springframework.orm.hibernate5.SpringSessionContext
-
-http:
-  encoding:
-    charset:UTF-8:
-
+  http:
+    encoding:
+      charset: UTF-8
   devtools:
     restart:
       enabled: true  #设置开启热部署
   freemarker:
     cache: false    #页面不加载缓存，修改即时生效
-debug: true
+
+#eureka client配置
+eureka:
+  client:
+    serviceUrl:
+      defaultZone:  http://127.0.0.1:1000/eureka
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${spring.application.instance_id:${server.port}}
+    #instance-id: ${spring.application.name}:${docker.ipAddress}:${spring.application.instance_id:${server.port}}
+    lease-renewal-interval-in-seconds: 2  #每隔几秒告诉eureka服务器我还存活，用于心跳检测
+    lease-expiration-duration-in-seconds: 10 #如果心跳检测一直没有发送，10秒后会从eureka服务器中将此服务剔除
 
 ribbon:
   eureka:

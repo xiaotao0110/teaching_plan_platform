@@ -1,23 +1,9 @@
-spring:
-  application:
-    name: OAUTH-CENTER
 server:
   port: 1001
 
-#eureka client配置
-eureka:
-  client:
-    healthcheck:
-      enabled: true
-    serviceUrl:
-      defaultZone:  http://127.0.0.1:1000/eureka
-  instance:
-    prefer-ip-address: true
-    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${spring.application.instance_id:${server.port}}
-    #instance-id: ${spring.application.name}:${docker.ipAddress}:${spring.application.instance_id:${server.port}}
-    lease-renewal-interval-in-seconds: 2  #每隔几秒告诉eureka服务器我还存活，用于心跳检测
-    lease-expiration-duration-in-seconds: 10 #如果心跳检测一直没有发送，10秒后会从eureka服务器中将此服务剔除
-
+spring:
+  application:
+    name: OAUTH-CENTER
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/crtvn?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT%2B8
     username: root
@@ -36,5 +22,21 @@ eureka:
       min-evictable-idle-time-millis: 300000
   main:
     allow-bean-definition-overriding: true
+
+#eureka client配置
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone:  http://127.0.0.1:1000/eureka
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${spring.application.instance_id:${server.port}}
+    #instance-id: ${spring.application.name}:${docker.ipAddress}:${spring.application.instance_id:${server.port}}
+    lease-renewal-interval-in-seconds: 2  #每隔几秒告诉eureka服务器我还存活，用于心跳检测
+    lease-expiration-duration-in-seconds: 10 #如果心跳检测一直没有发送，10秒后会从eureka服务器中将此服务剔除
+
+
 
 
