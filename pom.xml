@@ -17,7 +17,6 @@
         <module>oauth-center</module>
         <!-- 业务网关 -->
         <module>api-gateway</module>
-
         <!--考试中心-->
         <module>crtvn-center</module>
     </modules>
