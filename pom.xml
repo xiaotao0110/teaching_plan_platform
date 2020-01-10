@@ -38,7 +38,7 @@
 
         <spring-cloud-dependencies.version>Greenwich.SR2</spring-cloud-dependencies.version>
         <spring-security.version>5.1.1.RELEASE</spring-security.version>
-        <security-oauth2.version>2.3.4.RELEASE</security-oauth2.version>
+        <security-oauth2.version>2.3.6.RELEASE</security-oauth2.version>
         <spring-platform.version>Cairo-SR3</spring-platform.version>
         <eureka-client.version>2.1.2.RELEASE</eureka-client.version>
         <eureka-server.version>1.4.6.RELEASE</eureka-server.version>
