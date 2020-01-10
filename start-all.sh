@@ -14,20 +14,24 @@
 echo "------------------开始构建镜像------------------"
 
 echo "------------------构建register镜像"
-cd  register-center
+cd  $WORKSPACE/register-center
 mvn clean install  package docker:build -Dmaven.test.skip=true
+echo "------------------构建register结束"
 
 echo "------------------构建api-gateway镜像"
-cd   api-gateway
+cd   $WORKSPACE/api-gateway
 mvn clean install  package docker:build -Dmaven.test.skip=true
+echo "------------------构建api-gateway结束"
 
 echo "------------------构建oauth镜像"
-cd   oauth-center
+cd   $WORKSPACE/oauth-center
 mvn clean install  package docker:build -Dmaven.test.skip=true
+echo "------------------构建oauth结束"
 
 echo "------------------构建crtvn镜像"
-cd   crtvn-center
+cd   $WORKSPACE/crtvn-center
 mvn clean install  package docker:build -Dmaven.test.skip=true
+echo "------------------构建crtvn结束"
 
 echo "------------------构建镜像完成------------------"
 
