@@ -20,6 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
+@SuppressWarnings("unchecked")
 public class JwtTokenConfig {
 
     /**

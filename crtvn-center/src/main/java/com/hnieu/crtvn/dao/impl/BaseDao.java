@@ -15,6 +15,7 @@ import java.util.Map;
 
 @Transactional
 @Repository
+@SuppressWarnings("unchecked")
 public class BaseDao<T> implements IBaseDAO<T> {
 
     @PersistenceContext

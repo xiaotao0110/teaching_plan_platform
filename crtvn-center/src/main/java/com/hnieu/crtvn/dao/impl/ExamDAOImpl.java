@@ -10,6 +10,7 @@ import java.util.Map;
 
 @Transactional
 @Repository
+@SuppressWarnings("unchecked")
 public class ExamDAOImpl extends BaseDao<Exam> implements IExamDAO {
 
 	@Override

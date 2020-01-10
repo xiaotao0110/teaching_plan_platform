@@ -16,6 +16,7 @@ import java.util.Map;
 
 @Controller
 @RequestMapping(value = "teacher")
+@SuppressWarnings("unchecked")
 public class TeacherController {
 	
 	@Autowired

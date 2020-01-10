@@ -20,6 +20,7 @@ import java.util.Map;
 
 @Service
 @Transactional
+@SuppressWarnings("unchecked")
 public class CourseServiceImpl implements ICourseService {
 
 	private static final int COURSE_ALL = 0; //0:表示全部

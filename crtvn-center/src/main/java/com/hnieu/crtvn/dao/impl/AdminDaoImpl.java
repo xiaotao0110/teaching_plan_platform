@@ -11,6 +11,7 @@ import java.util.Map;
 
 @Transactional
 @Repository
+@SuppressWarnings("unchecked")
 public class AdminDaoImpl extends BaseDao<Admin> implements IAdminDAO {
 
 	@Override

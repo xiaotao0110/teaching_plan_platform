@@ -12,6 +12,7 @@ import java.util.List;
 
 @Service
 @Transactional
+@SuppressWarnings("unchecked")
 public class AdminServiceImpl extends BaseDao<Admin> implements IAdminService {
 
 	@Autowired

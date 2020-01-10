@@ -15,6 +15,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
  * 主要是配置Redis的序列化规则，用Jackson2JsonRedisSerializer替换默认的jdkSerializer
  */
 @Configuration
+@SuppressWarnings("unchecked")
 public class RedisConfig {
 
 

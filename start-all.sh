@@ -3,13 +3,13 @@
 # 用来启动所有的项目
 
 #复制项目到共享文件夹
-cp -r $WORKSPACE /usr/local/tomcat/webapps
+#cp -r $WORKSPACE /usr/local/tomcat/webapps
 
 #退出tomcat容器
-exit
+#exit
 
 #进入项目根目录
-cd /usr/local/webapps/teaching_plan_platform
+#cd /usr/local/webapps/teaching_plan_platform
 
 echo "------------------开始构建镜像------------------"
 

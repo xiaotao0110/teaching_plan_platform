@@ -15,6 +15,7 @@ import java.util.Map;
 
 @Service
 @Transactional
+@SuppressWarnings("unchecked")
 public class ProfessionServiceImpl implements IProfessionService {
 
 	@Autowired

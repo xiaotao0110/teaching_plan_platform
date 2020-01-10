@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@SuppressWarnings("unchecked")
 public class SysController {
 
 	@Autowired

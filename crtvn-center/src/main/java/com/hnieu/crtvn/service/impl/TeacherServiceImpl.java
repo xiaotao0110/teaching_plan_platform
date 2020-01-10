@@ -19,6 +19,7 @@ import java.util.Map;
 
 @Service
 @Transactional
+@SuppressWarnings("unchecked")
 public class TeacherServiceImpl implements ITeacherService {
 
 	@Autowired

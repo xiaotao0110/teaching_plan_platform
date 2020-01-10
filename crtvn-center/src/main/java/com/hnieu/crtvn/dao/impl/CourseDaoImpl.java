@@ -16,6 +16,7 @@ import java.util.Map;
 
 @Transactional
 @Repository
+@SuppressWarnings("unchecked")
 public class CourseDaoImpl extends BaseDao<Course> implements ICourseDAO {
 	
 	@Autowired

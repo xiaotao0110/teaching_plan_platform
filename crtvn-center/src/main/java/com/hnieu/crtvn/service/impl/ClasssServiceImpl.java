@@ -17,6 +17,7 @@ import java.util.Map;
 
 @Service
 @Transactional
+@SuppressWarnings("unchecked")
 public class ClasssServiceImpl extends BaseDao<Classs> implements IClasssService {
 
 	private static final int CLASSS_ALL = 0; //0:表示全部

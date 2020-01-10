@@ -12,6 +12,7 @@ import java.util.Map;
 
 @Transactional
 @Repository
+@SuppressWarnings("unchecked")
 public class AcademicianDaoImpl extends BaseDao<Academician> implements IAcademicianDAO {
 
 	@Override

@@ -21,6 +21,7 @@ import java.util.Map.Entry;
 
 @Service
 @Transactional
+@SuppressWarnings("unchecked")
 public class ExaminationServiceImpl implements IExaminationService {
 
 	private static final int EXAM_ALL = 0; //0:表示全部

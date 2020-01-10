@@ -16,6 +16,7 @@ import java.util.Map;
 
 @Transactional
 @Repository
+@SuppressWarnings("unchecked")
 public class EtimeDAOImpl extends BaseDao<Etime> implements IEtimeDAO {
 
 	@Autowired

@@ -15,6 +15,7 @@ import java.util.Map;
 
 
 @RestController
+@SuppressWarnings("unchecked")
 public class TokenController {
 
     @Autowired

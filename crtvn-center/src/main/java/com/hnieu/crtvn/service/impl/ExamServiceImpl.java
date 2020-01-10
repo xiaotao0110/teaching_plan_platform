@@ -14,6 +14,7 @@ import java.util.*;
 
 @Service
 @Transactional
+@SuppressWarnings("unchecked")
 public class ExamServiceImpl implements IExamService {
 	
 	private static final int EXAM_ALL = 0; //0:表示全部

@@ -15,6 +15,7 @@ import java.util.*;
 
 @Service
 @Transactional
+@SuppressWarnings("unchecked")
 public class AcademicianServiceImpl extends BaseDao<Academician> implements IAcademicianService {
 
 	private static final int AC_ALL = 0; //0:表示全部

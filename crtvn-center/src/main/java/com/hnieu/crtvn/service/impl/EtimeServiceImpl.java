@@ -17,6 +17,7 @@ import java.util.*;
 
 @Service
 @Transactional
+@SuppressWarnings("unchecked")
 public class EtimeServiceImpl implements IEtimeService {
 	
 	@Autowired

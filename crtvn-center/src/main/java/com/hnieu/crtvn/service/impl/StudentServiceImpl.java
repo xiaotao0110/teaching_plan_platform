@@ -25,6 +25,7 @@ import java.util.Map;
 
 @Service
 @Transactional
+@SuppressWarnings("unchecked")
 public class StudentServiceImpl implements IStudentService {
 
 	private static final int STUDENT_ALL = 0; //0:表示全部

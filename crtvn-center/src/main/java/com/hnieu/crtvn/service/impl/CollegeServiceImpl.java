@@ -14,6 +14,7 @@ import java.util.Map;
 
 @Service
 @Transactional
+@SuppressWarnings("unchecked")
 public class CollegeServiceImpl implements ICollegeService {
 
 	@Autowired

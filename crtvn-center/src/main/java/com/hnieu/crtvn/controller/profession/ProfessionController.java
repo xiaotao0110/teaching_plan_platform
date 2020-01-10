@@ -15,6 +15,7 @@ import java.util.Map;
 
 @Controller
 @RequestMapping(value = "profession")
+@SuppressWarnings("unchecked")
 public class ProfessionController {
 	
 	@Autowired

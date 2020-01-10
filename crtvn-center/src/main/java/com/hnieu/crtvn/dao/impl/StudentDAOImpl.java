@@ -18,6 +18,7 @@ import java.util.Map;
 
 @Transactional
 @Repository
+@SuppressWarnings("unchecked")
 public class StudentDAOImpl extends BaseDao implements IStudentDAO {
 	
 	@Autowired

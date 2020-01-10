@@ -9,6 +9,7 @@ import java.util.List;
 
 @Transactional
 @Repository
+@SuppressWarnings("unchecked")
 public class CollegeDAOImpl extends BaseDao<College> implements ICollegeDAO {
 
 	@Override

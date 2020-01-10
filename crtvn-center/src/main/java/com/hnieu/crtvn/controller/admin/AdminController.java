@@ -14,6 +14,7 @@ import java.util.Map;
 
 @Controller
 @RequestMapping(value = "admin")
+@SuppressWarnings("unchecked")
 public class AdminController {
 	
 	@Autowired

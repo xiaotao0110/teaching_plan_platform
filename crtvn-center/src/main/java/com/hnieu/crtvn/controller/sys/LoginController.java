@@ -23,6 +23,7 @@ import java.util.concurrent.TimeUnit;
 
 @Controller
 @RequestMapping(value = "/login")
+@SuppressWarnings("unchecked")
 public class LoginController {
 
     private final String SESSION_SECURITY_CODE = "imageCode";

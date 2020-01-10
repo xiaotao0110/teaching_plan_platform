@@ -15,6 +15,7 @@ import java.util.Map;
 
 @Controller
 @RequestMapping(value = "timeDate")
+@SuppressWarnings("unchecked")
 public class TimeDateController {
 	
 	@Autowired
