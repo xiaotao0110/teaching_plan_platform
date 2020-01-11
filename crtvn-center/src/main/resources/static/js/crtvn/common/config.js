@@ -1,3 +1,3 @@
-var base_url = " http://127.0.0.1:1005/";
+//var base_url = " http://127.0.0.1:1005/";
 
-var test_url = " http://127.0.0.1:1003/";
+var base_url = " http://192.168.254.150:1005/";
