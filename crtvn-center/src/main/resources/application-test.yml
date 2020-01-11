@@ -85,7 +85,9 @@ ribbon:
   eureka:
     enabled: true
 
-
+oauth:
+  token:
+    url: http://127.0.0.1:1001/oauth/token
 
 
 

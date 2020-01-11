@@ -83,3 +83,7 @@ eureka:
 ribbon:
   eureka:
     enabled: true
+
+oauth:
+  token:
+    url: http://192.168.254.150:1001/oauth/token
