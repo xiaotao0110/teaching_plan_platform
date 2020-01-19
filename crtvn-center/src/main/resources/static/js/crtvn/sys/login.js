@@ -19,9 +19,9 @@ $(function () {
         sumbitFun();
     });
 
-    $('#codeImg').attr("src", getBaseUrl() + "login/verificationCode");
+    $('#codeImg').attr("src", getCodeUrl() + "login/verificationCode");
     $('#codeImg').click(function () {
-        $("#codeImg").attr("src", getBaseUrl() + "login/verificationCode?time=" + new Date().getTime());
+        $("#codeImg").attr("src", getCodeUrl() + "login/verificationCode?time=" + new Date().getTime());
         $("#code").val("");
     });
 
