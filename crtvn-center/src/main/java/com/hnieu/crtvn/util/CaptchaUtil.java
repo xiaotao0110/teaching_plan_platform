@@ -1,5 +1,7 @@
 package com.hnieu.crtvn.util;
 
+import org.springframework.stereotype.Component;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.font.FontRenderContext;
@@ -9,41 +11,42 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.Random;
 
+@Component
 public class CaptchaUtil {
-	
-	public static String  drawImg(ByteArrayOutputStream output){
-		
-		 String code = "";
-	        for(int i=0; i<4; i++){
-	            code += randomChar();
-	        }
-	        int width = 70;
-	        int height = 25;
-	        BufferedImage bi = new BufferedImage(width,height,BufferedImage.TYPE_3BYTE_BGR);
-	        Font font = new Font("Times New Roman",Font.PLAIN,20);
-	        Graphics2D g = bi.createGraphics();
-	        g.setFont(font);
-	        Color color = new Color(66,2,82);
-	        g.setColor(color);
-	        g.setBackground(new Color(226,226,240));
-	        g.clearRect(0, 0, width, height);
-	        FontRenderContext context = g.getFontRenderContext();
-	        Rectangle2D bounds = font.getStringBounds(code, context);
-	        double x = (width - bounds.getWidth()) / 2;
-	        double y = (height - bounds.getHeight()) / 2;
-	        double ascent = bounds.getY();
-	        double baseY = y - ascent;
-	        g.drawString(code, (int)x, (int)baseY);
-	        g.dispose();
-	        try {
-	            ImageIO.write(bi, "jpg", output);
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	        }
-	        return code;
-	}
-	
-	private static char randomChar(){
+
+    public String drawImg(ByteArrayOutputStream output) {
+
+        String code = "";
+        for (int i = 0; i < 4; i++) {
+            code += randomChar();
+        }
+        int width = 70;
+        int height = 25;
+        BufferedImage bi = new BufferedImage(width, height, BufferedImage.TYPE_3BYTE_BGR);
+        Font font = new Font("Times New Roman", Font.PLAIN, 20);
+        Graphics2D g = bi.createGraphics();
+        g.setFont(font);
+        Color color = new Color(66, 2, 82);
+        g.setColor(color);
+        g.setBackground(new Color(226, 226, 240));
+        g.clearRect(0, 0, width, height);
+        FontRenderContext context = g.getFontRenderContext();
+        Rectangle2D bounds = font.getStringBounds(code, context);
+        double x = (width - bounds.getWidth()) / 2;
+        double y = (height - bounds.getHeight()) / 2;
+        double ascent = bounds.getY();
+        double baseY = y - ascent;
+        g.drawString(code, (int) x, (int) baseY);
+        g.dispose();
+        try {
+            ImageIO.write(bi, "jpg", output);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return code;
+    }
+
+    private static char randomChar() {
         Random r = new Random();
         String str = "ABCDEFGHJKLMNPRSTUVWXYZ0123456789";
         return str.charAt(r.nextInt(str.length()));
