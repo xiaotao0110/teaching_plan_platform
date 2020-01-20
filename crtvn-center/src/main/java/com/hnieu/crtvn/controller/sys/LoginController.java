@@ -74,9 +74,11 @@ public class LoginController {
     @RequestMapping(value = "/academicianLogin")
     public String login(Academician academician, String code, Course course, final RedirectAttributes redirectAttributes) {
 
-        HttpSession session = request.getSession();
+        //HttpSession session = request.getSession();
+        //String imageCode = (String) session.getAttribute(SESSION_SECURITY_CODE);
 
-        String imageCode = (String) session.getAttribute(SESSION_SECURITY_CODE);
+        String imageCode = (String) redisTemplate.boundValueOps(SESSION_SECURITY_CODE).get();
+
         if (code == null || code.length() == 0) {
             redirectAttributes.addFlashAttribute("code_msg", "验证码错误！");
             return "login";
@@ -86,8 +88,8 @@ public class LoginController {
                 if (academicianBean != null) {
 
                     //记录时间
-                    session.setAttribute("course", course);
-                    session.setAttribute("academician", academicianBean);
+                    //session.setAttribute("course", course);
+                    //session.setAttribute("academician", academicianBean);
 
                     // TODO: 2020/1/8  以后存入token或者redis ，废弃session方式  ,替换调用session的地方
                     redisTemplate.boundValueOps("crtvn:course").set(course, 10, TimeUnit.MINUTES);
@@ -120,12 +122,11 @@ public class LoginController {
         String code = CaptchaUtil.drawImg(output);
 
         // 将四位数字的验证码保存到Session中。
-        HttpSession session = req.getSession();
-        session.setAttribute(SESSION_SECURITY_CODE, code);
-
+        //HttpSession session = req.getSession();
+        //session.setAttribute(SESSION_SECURITY_CODE, code);
 
         // TODO: 2020/1/5  以后存入redis，为数组结构，判断是否存在
-        //redisTemplate.boundValueOps("");
+        redisTemplate.boundValueOps(SESSION_SECURITY_CODE).set(code, 60, TimeUnit.SECONDS);
 
         try {
             // 将图像输出到Servlet输出流中
