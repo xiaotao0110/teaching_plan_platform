@@ -40,9 +40,6 @@ public class LoginController {
     @Autowired
     private RedisTemplate redisTemplate;
 
-    @Autowired
-    private CaptchaUtil captchaUtil;
-
     /**
      * 管理员登录验证
      */
@@ -120,7 +117,7 @@ public class LoginController {
     public void verificationCode(HttpServletRequest req, HttpServletResponse response) {
 
         ByteArrayOutputStream output = new ByteArrayOutputStream();
-        String code = captchaUtil.drawImg(output);
+        String code = CaptchaUtil.drawImg(output);
 
         // 将四位数字的验证码保存到Session中。
         HttpSession session = req.getSession();
